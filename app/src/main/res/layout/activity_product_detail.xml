@@ -286,7 +286,7 @@
                         android:paddingLeft="90dp"
                         android:paddingRight="90dp"
                         android:paddingTop="12dp"
-                        android:text="Continue tes"
+                        android:text="Continue tes ini yusri yg push"
                         android:textColor="@android:color/white"
                         android:textSize="15sp" />
 

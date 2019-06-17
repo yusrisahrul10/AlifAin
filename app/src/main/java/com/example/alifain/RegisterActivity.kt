@@ -9,6 +9,7 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
 import android.widget.TextView
+import com.example.alifain.loginActivity.LoginActivity
 
 class RegisterActivity : AppCompatActivity() {
 

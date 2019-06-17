@@ -11,7 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="50dp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -22,6 +22,7 @@
                 android:layout_gravity="center_horizontal"
                 android:text="Alif Ain"
                 android:textSize="50sp"
+                android:fontFamily="@font/quintessential"
                 android:textStyle="italic"
                 android:textColor="@android:color/black"/>
 
@@ -41,11 +42,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email or Username"
+                android:fontFamily="@font/trebuc"
                 android:inputType="text"
                 android:paddingLeft="20dp"
+                android:background="@drawable/rect"
                 android:paddingTop="14dp"
                 android:paddingBottom="14dp"
-
+                android:id="@+id/edtTextMail"
         />
 
         <EditText
@@ -55,11 +58,13 @@
                 android:layout_marginRight="41dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/trebuc"
                 android:hint="Password"
                 android:paddingLeft="20dp"
                 android:paddingRight="13dp"
                 android:paddingTop="13dp"
                 android:paddingBottom="14dp"
+                android:background="@drawable/rect"
         />
 
         <Button
@@ -70,8 +75,10 @@
                 android:layout_marginLeft="41dp"
                 android:layout_marginRight="41dp"
                 android:text="Log In"
-                android:background="@color/colorPrimary"
+                android:fontFamily="@font/trebuc"
+                android:background="@drawable/button_bg"
                 android:textAllCaps="false"
+                android:textColor="@android:color/white"
                 android:id="@+id/btn_login"
         />
 
@@ -83,6 +90,7 @@
                 android:paddingLeft="38dp"
                 android:paddingRight="38dp"
                 android:paddingTop="10dp"
+                android:fontFamily="@font/berlinsans"
                 android:paddingBottom="10dp"
         >
             <ImageView
@@ -120,6 +128,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="9dp"
+                    android:fontFamily="@font/berlinsans"
                     android:layout_marginRight="9dp"
                     android:text="OR"
                     android:textSize="10sp" />
@@ -139,6 +148,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:id="@+id/tv_signup"
+                android:fontFamily="@font/berlinsans"
                 android:text="Don't have an account? Sign Up."
                 android:textColor="@android:color/black"
         />

@@ -19,6 +19,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:background="?android:attr/windowBackground"
-            app:menu="@menu/menu_bnv" />
+            app:menu="@menu/menu_bnv"
+            app:itemTextAppearanceActive="@style/BottomNavigationViewTextStyle"
+            app:itemTextAppearanceInactive="@style/BottomNavigationViewTextStyle"/>
 
 </RelativeLayout>

@@ -1,6 +1,7 @@
 package com.example.alifain
 
 import android.content.Intent
+import android.graphics.Typeface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Spannable
@@ -9,12 +10,14 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var btnLogin: Button
     private lateinit var tvSignUp: TextView
+    private lateinit var edtEmail: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +25,7 @@ class LoginActivity : AppCompatActivity() {
 
         btnLogin = findViewById(R.id.btn_login)
         tvSignUp = findViewById(R.id.tv_signup)
+        edtEmail = findViewById(R.id.edtTextMail)
 
         btnLogin.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
@@ -45,4 +49,10 @@ class LoginActivity : AppCompatActivity() {
         tvSignUp.text = ss
         tvSignUp.movementMethod = LinkMovementMethod.getInstance()
     }
+
+//    private fun changeFont() {
+//        val typeface = Typeface.createFromAsset(assets, "berlinsans.ttf")
+//
+//        edtEmail
+//    }
 }

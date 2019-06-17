@@ -11,8 +11,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="50dp"
             android:gravity="center"
+            android:id="@+id/tv_alifain"
             android:orientation="vertical">
 
         <TextView
@@ -21,6 +22,7 @@
                 android:scaleType="centerCrop"
                 android:layout_gravity="center_horizontal"
                 android:text="Alif Ain"
+                android:fontFamily="@font/quintessential"
                 android:textSize="50sp"
                 android:textStyle="italic"
                 android:textColor="@android:color/black"/>
@@ -31,7 +33,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_centerInParent="true"
+            android:layout_below="@id/tv_alifain"
+            android:layout_marginTop="20dp"
     >
 
         <EditText
@@ -45,7 +48,8 @@
                 android:paddingLeft="20dp"
                 android:paddingTop="14dp"
                 android:paddingBottom="14dp"
-
+                android:fontFamily="@font/trebuc"
+                android:background="@drawable/rect"
         />
 
         <EditText
@@ -60,6 +64,8 @@
                 android:paddingRight="13dp"
                 android:paddingTop="13dp"
                 android:paddingBottom="14dp"
+                android:fontFamily="@font/trebuc"
+                android:background="@drawable/rect"
         />
 
         <EditText
@@ -74,6 +80,8 @@
                 android:paddingRight="13dp"
                 android:paddingTop="13dp"
                 android:paddingBottom="14dp"
+                android:fontFamily="@font/trebuc"
+                android:background="@drawable/rect"
         />
 
         <EditText
@@ -88,18 +96,22 @@
                 android:paddingRight="13dp"
                 android:paddingTop="13dp"
                 android:paddingBottom="14dp"
+                android:fontFamily="@font/trebuc"
+                android:background="@drawable/rect"
         />
 
         <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginLeft="41dp"
                 android:layout_marginRight="41dp"
                 android:text="Next"
-                android:background="@color/colorPrimary"
                 android:textAllCaps="false"
+                android:fontFamily="@font/trebuc"
+                android:background="@drawable/button_bg"
+                android:textColor="@android:color/white"
         />
 
 
@@ -124,6 +136,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Already have an account? Log In."
+                android:fontFamily="@font/berlinsans"
                 android:id="@+id/tv_login"/>
 
     </LinearLayout>

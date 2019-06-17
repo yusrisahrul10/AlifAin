@@ -32,6 +32,8 @@
                     android:layout_below="@id/image_new_product"
                     android:id="@+id/tv_name_new_product"
                     android:layout_centerInParent="true"
+                    android:fontFamily="@font/berlinsans"
+                    android:textColor="@android:color/black"
             />
 
             <TextView
@@ -41,6 +43,9 @@
                     android:layout_below="@id/tv_name_new_product"
                     android:id="@+id/tv_price_new_product"
                     android:layout_centerInParent="true"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/berlinsans"
+                    android:textStyle="bold"
             />
         </RelativeLayout>
 

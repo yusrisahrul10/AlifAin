@@ -1,23 +1,32 @@
-package com.example.alifain
+package com.example.alifain.loginActivity
 
 import android.content.Intent
-import android.graphics.Typeface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.example.alifain.MainActivity
+import com.example.alifain.R
+import com.example.alifain.RegisterActivity
+import com.example.alifain.preference.MyPreference
+import com.example.alifain.rest.ApiRepository
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() , LoginView {
+
+
 
     private lateinit var btnLogin: Button
     private lateinit var tvSignUp: TextView
     private lateinit var edtEmail: EditText
+    private lateinit var edtPassword : EditText
+    private lateinit var presenter: LoginPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,15 +35,22 @@ class LoginActivity : AppCompatActivity() {
         btnLogin = findViewById(R.id.btn_login)
         tvSignUp = findViewById(R.id.tv_signup)
         edtEmail = findViewById(R.id.edtTextMail)
+        edtPassword = findViewById(R.id.edtPassword)
 
+
+        getData()
         btnLogin.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            presenter.LoginPush(edtEmail.text.toString(), edtPassword.text.toString())
+
         }
 
         signUpClick()
     }
+    override fun moveIntent() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
 
+    }
     private fun signUpClick() {
         val text = "Don't have an account? Sign Up."
         val ss = SpannableString(text)
@@ -50,9 +66,22 @@ class LoginActivity : AppCompatActivity() {
         tvSignUp.movementMethod = LinkMovementMethod.getInstance()
     }
 
-//    private fun changeFont() {
-//        val typeface = Typeface.createFromAsset(assets, "berlinsans.ttf")
-//
-//        edtEmail
-//    }
+
+    override fun showLoading() {
+
+    }
+
+    override fun hideLoading() {
+
+    }
+    fun getData(){
+        val apiRepository = ApiRepository()
+        val myPreference = MyPreference(this)
+        presenter = LoginPresenter(this,apiRepository)
+        presenter.LoginPresenter(this,myPreference)
+
+
+    }
+
+
 }

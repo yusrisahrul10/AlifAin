@@ -16,4 +16,9 @@
             android:icon="@drawable/shopping_cart"
             android:title="@string/shopping_cart" />
 
+    <item
+            android:id="@+id/bnv_profile"
+            android:icon="@drawable/user"
+            android:title="Profile" />
+
 </menu>

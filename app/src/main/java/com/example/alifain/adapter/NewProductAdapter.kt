@@ -9,11 +9,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.alifain.R
 import com.example.alifain.model.ProductModel
+import com.example.alifain.model.barang.Data
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_new_product.view.*
 
-class NewProductAdapter(private val context: Context?, private val items: List<ProductModel>,
-                        private val listener: (ProductModel) -> Unit)
+class NewProductAdapter(private val context: Context?, private val items: List<Data>,
+                        private val listener: (Data) -> Unit)
     : RecyclerView.Adapter<NewProductAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_new_product, parent, false))
@@ -29,10 +30,10 @@ class NewProductAdapter(private val context: Context?, private val items: List<P
         private val image = view.findViewById<ImageView>(R.id.image_new_product)
         private val price = view.findViewById<TextView>(R.id.tv_price_new_product)
 
-        fun bindItem(items : ProductModel, listener: (ProductModel) -> Unit) {
-            name.text = items.name
-            items.image?.let { Picasso.get().load(it).into(image) }
-            price.text = items.price.toString()
+        fun bindItem(items : Data, listener: (Data) -> Unit) {
+            name.text = items.nama_barang
+            items.nama_gambar?.let { Picasso.get().load("http://alifain.dscunikom.com/uploads/barang/"+it).into(image) }
+            price.text = items.harga
 
             itemView.setOnClickListener {
                 listener(items)

@@ -36,16 +36,16 @@ class LoginPresenter(private val view: LoginView, private val apiRepository: Api
             override fun onResponse(call: Call<LoginRespones>, response: Response<LoginRespones>) {
                 view.hideLoading()
                 val push: String = response.body()!!.message
-                val id_user : String = response.body()!!.data.id_user
-                val username : String = response.body()!!.data.username
-                val emailUser : String = response.body()!!.data.email
-                val alamat : String = response.body()!!.data.alamat
-                val nohp : String = response.body()!!.data.nohp
-                myPreference?.setIdUser(id_user)
-                myPreference?.setUsername(username)
-                myPreference?.setEmail(emailUser)
-                myPreference?.setAlamat(alamat)
-                myPreference?.setNoHp(nohp)
+                val id_user : String? = response.body()?.data?.id_user
+                val username : String? = response.body()?.data?.username
+                val emailUser : String? = response.body()?.data?.email
+                val alamat : String? = response.body()?.data?.alamat
+                val nohp : String? = response.body()?.data?.nohp
+                myPreference?.setIdUser(id_user.toString())
+                myPreference?.setUsername(username.toString())
+                myPreference?.setEmail(emailUser.toString())
+                myPreference?.setAlamat(alamat.toString())
+                myPreference?.setNoHp(nohp.toString())
 
                 if (push.equals("sukses")) {
                     Toast.makeText(context, "Login berhasil ", Toast.LENGTH_SHORT).show()

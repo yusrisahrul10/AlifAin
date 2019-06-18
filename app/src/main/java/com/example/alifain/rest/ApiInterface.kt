@@ -1,11 +1,10 @@
 package com.example.alifain.rest
 
 
+import com.example.alifain.model.barang.BarangResponse
 import com.example.alifain.model.login.LoginRespones
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiInterface {
 
@@ -24,5 +23,11 @@ interface ApiInterface {
         @Field("nohp") nohp : String,
         @Field("password") password : String
     ) : Call<LoginRespones>
+
+    @GET("Barang")
+    fun getBarang() : Call<BarangResponse>
+
+    @GET("Barang")
+    fun getDetailBarang(@Query("id_barang") id_barang : String) : Call<BarangResponse>
 
 }

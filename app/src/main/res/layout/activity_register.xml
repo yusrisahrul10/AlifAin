@@ -1,143 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".RegisterActivity">
+        android:orientation="vertical"
+        tools:context=".registerActivity.RegisterActivity">
 
     <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:gravity="center"
-            android:id="@+id/tv_alifain"
-            android:orientation="vertical">
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
-                android:layout_gravity="center_horizontal"
-                android:text="Alif Ain"
-                android:fontFamily="@font/quintessential"
-                android:textSize="50sp"
-                android:textStyle="italic"
-                android:textColor="@android:color/black"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_below="@id/tv_alifain"
-            android:layout_marginTop="20dp"
-    >
-
-        <EditText
-                android:layout_gravity="center"
-                android:layout_marginLeft="41dp"
-                android:layout_marginRight="41dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email"
-                android:inputType="text"
-                android:paddingLeft="20dp"
-                android:paddingTop="14dp"
-                android:paddingBottom="14dp"
-                android:fontFamily="@font/trebuc"
-                android:background="@drawable/rect"
-        />
-
-        <EditText
-                android:layout_gravity="center"
-                android:layout_marginTop="16dp"
-                android:layout_marginLeft="41dp"
-                android:layout_marginRight="41dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Username"
-                android:paddingLeft="20dp"
-                android:paddingRight="13dp"
-                android:paddingTop="13dp"
-                android:paddingBottom="14dp"
-                android:fontFamily="@font/trebuc"
-                android:background="@drawable/rect"
-        />
-
-        <EditText
-                android:layout_gravity="center"
-                android:layout_marginTop="16dp"
-                android:layout_marginLeft="41dp"
-                android:layout_marginRight="41dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Password"
-                android:paddingLeft="20dp"
-                android:paddingRight="13dp"
-                android:paddingTop="13dp"
-                android:paddingBottom="14dp"
-                android:fontFamily="@font/trebuc"
-                android:background="@drawable/rect"
-        />
-
-        <EditText
-                android:layout_gravity="center"
-                android:layout_marginTop="16dp"
-                android:layout_marginLeft="41dp"
-                android:layout_marginRight="41dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Phone Number"
-                android:paddingLeft="20dp"
-                android:paddingRight="13dp"
-                android:paddingTop="13dp"
-                android:paddingBottom="14dp"
-                android:fontFamily="@font/trebuc"
-                android:background="@drawable/rect"
-        />
-
-        <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="41dp"
-                android:layout_marginRight="41dp"
-                android:text="Next"
-                android:textAllCaps="false"
-                android:fontFamily="@font/trebuc"
-                android:background="@drawable/button_bg"
-                android:textColor="@android:color/white"
-        />
-
-
-
-    </LinearLayout>
-
-    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_marginBottom="16dp"
-            android:layout_alignParentBottom="true">
-        <View
+            android:layout_height="match_parent">
+        <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginTop="8dp"
-                android:background="@android:color/black"
-                android:layout_marginBottom="16dp"/>
-
-        <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Already have an account? Log In."
-                android:fontFamily="@font/berlinsans"
-                android:id="@+id/tv_login"/>
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:id="@+id/tv_alifain"
+                android:orientation="vertical">
 
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Alif Ain"
+                    android:fontFamily="@font/quintessential"
+                    android:textSize="50sp"
+                    android:textStyle="italic"
+                    android:textColor="@android:color/black"/>
+
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@id/tv_alifain"
+                android:layout_marginTop="20dp"
+        >
+
+            <EditText
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="41dp"
+                    android:id="@+id/email"
+                    android:layout_marginRight="41dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:inputType="text"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:fontFamily="@font/trebuc"
+                    android:background="@drawable/rect"
+            />
+
+            <EditText
+                    android:layout_gravity="center"
+                    android:id="@+id/username"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="41dp"
+                    android:layout_marginRight="41dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Username"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="13dp"
+                    android:paddingTop="13dp"
+                    android:paddingBottom="14dp"
+                    android:fontFamily="@font/trebuc"
+                    android:background="@drawable/rect"
+            />
+
+            <EditText
+                    android:layout_gravity="center"
+                    android:id="@+id/password"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="41dp"
+                    android:layout_marginRight="41dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="13dp"
+                    android:paddingTop="13dp"
+                    android:paddingBottom="14dp"
+                    android:fontFamily="@font/trebuc"
+                    android:background="@drawable/rect"
+            />
+
+            <EditText
+                    android:layout_gravity="center"
+                    android:id="@+id/nohp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="41dp"
+                    android:layout_marginRight="41dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Phone Number"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="13dp"
+                    android:paddingTop="13dp"
+                    android:paddingBottom="14dp"
+                    android:fontFamily="@font/trebuc"
+                    android:background="@drawable/rect"
+            />
+            <EditText
+                    android:layout_gravity="center"
+                    android:id="@+id/alamat"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="41dp"
+                    android:layout_marginRight="41dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Alamat"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="13dp"
+                    android:paddingTop="13dp"
+                    android:paddingBottom="14dp"
+                    android:fontFamily="@font/trebuc"
+                    android:background="@drawable/rect"
+            />
+
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="41dp"
+                    android:layout_marginRight="41dp"
+                    android:id="@+id/register"
+                    android:text="Register"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/trebuc"
+                    android:background="@drawable/button_bg"
+                    android:textColor="@android:color/white"
+            />
+
+
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginBottom="16dp"
+                android:layout_alignParentBottom="true">
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/black"
+                    android:layout_marginBottom="16dp"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Already have an account? Log In."
+                    android:fontFamily="@font/berlinsans"
+                    android:id="@+id/tv_login"/>
+
+        </LinearLayout>
     </LinearLayout>
-</RelativeLayout>
+
+
+</ScrollView>

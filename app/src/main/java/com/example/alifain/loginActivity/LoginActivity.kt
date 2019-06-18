@@ -7,14 +7,13 @@ import android.text.Spannable
 import android.text.SpannableString
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import com.example.alifain.MainActivity
 import com.example.alifain.R
-import com.example.alifain.RegisterActivity
+import com.example.alifain.registerActivity.RegisterActivity
 import com.example.alifain.preference.MyPreference
 import com.example.alifain.rest.ApiRepository
 

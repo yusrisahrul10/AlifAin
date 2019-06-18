@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.example.alifain.submain.CartFragment
 import com.example.alifain.submain.CategoryFragment
 import com.example.alifain.submain.HomeFragment
+import com.example.alifain.submain.ProfileFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +26,10 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.bnv_shopping_cart -> {
                     loadCartFragment(savedInstanceState)
+                }
+
+                R.id.bnv_profile -> {
+                    loadProfileFragment(savedInstanceState)
                 }
             }
 
@@ -65,6 +70,18 @@ class MainActivity : AppCompatActivity() {
                 .replace(
                     R.id.frame_layout,
                     CartFragment(), CartFragment::class.java.simpleName)
+                .commit()
+
+        }
+    }
+
+    private fun loadProfileFragment(savedInstanceState: Bundle?) {
+        if (savedInstanceState == null) {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(
+                    R.id.frame_layout,
+                    ProfileFragment(), CartFragment::class.java.simpleName)
                 .commit()
 
         }

@@ -12,7 +12,8 @@ import com.example.alifain.model.ProductModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_new_product.view.*
 
-class NewProductAdapter(private val context: Context?, private val items: List<ProductModel>)
+class NewProductAdapter(private val context: Context?, private val items: List<ProductModel>,
+                        private val listener: (ProductModel) -> Unit)
     : RecyclerView.Adapter<NewProductAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_new_product, parent, false))
@@ -20,7 +21,7 @@ class NewProductAdapter(private val context: Context?, private val items: List<P
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: NewProductAdapter.ViewHolder, position: Int) {
-        holder.bindItem(items[position])
+        holder.bindItem(items[position], listener)
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -28,10 +29,14 @@ class NewProductAdapter(private val context: Context?, private val items: List<P
         private val image = view.findViewById<ImageView>(R.id.image_new_product)
         private val price = view.findViewById<TextView>(R.id.tv_price_new_product)
 
-        fun bindItem(items : ProductModel) {
+        fun bindItem(items : ProductModel, listener: (ProductModel) -> Unit) {
             name.text = items.name
             items.image?.let { Picasso.get().load(it).into(image) }
             price.text = items.price.toString()
+
+            itemView.setOnClickListener {
+                listener(items)
+            }
         }
     }
 }

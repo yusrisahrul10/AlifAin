@@ -50,8 +50,9 @@
                     android:layout_below="@id/productimage"
                     android:padding="16dp">
 
-                <TextView                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
                         android:layout_weight="1"
                         android:gravity="right"
                         android:text="Niqab Bandana Poni Shiffon Arab"
@@ -296,8 +297,7 @@
                         android:textColor="@android:color/white"
                         android:textSize="15sp"
                         android:fontFamily="@font/berlinsans"
-                        android:textAllCaps="false"
-                        />
+                        android:textAllCaps="false"/>
 
             </LinearLayout>
 

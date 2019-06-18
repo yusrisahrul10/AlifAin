@@ -11,6 +11,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.alifain.ProductDetailActivity
 
 import com.example.alifain.R
 import com.example.alifain.adapter.NewProductAdapter
@@ -46,7 +47,10 @@ class HomeFragment : Fragment(), BannerListener {
         initData()
 
         list.layoutManager = GridLayoutManager(context, 2)
-        list.adapter = NewProductAdapter(context, items)
+        list.adapter = NewProductAdapter(context, items) {
+            val intent = Intent(context, ProductDetailActivity::class.java)
+            startActivity(intent)
+        }
         return view
     }
 
@@ -78,20 +82,19 @@ class HomeFragment : Fragment(), BannerListener {
     private fun initData() {
         val name = resources.getStringArray(R.array.name_new_product)
         val image =  resources.obtainTypedArray(R.array.image_new_product)
-        val price = resources.obtainTypedArray(R.array.price_new_product)
+        val price = resources.getIntArray(R.array.price_new_product)
 
         items.clear()
         for (i in name.indices) {
             items.add(
                 ProductModel(name[i],
                 image.getResourceId(i, 0),
-                price.getResourceId(i, 0))
+                price[i])
             )
         }
 
         //Recycle the typed array
         image.recycle()
-        price.recycle()
     }
 
 

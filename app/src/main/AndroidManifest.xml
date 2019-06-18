@@ -13,7 +13,7 @@
             android:theme="@style/AppTheme">
         <activity android:name=".ProductDetailActivity">
         </activity>
-        <activity android:name=".RegisterActivity">
+        <activity android:name=".registerActivity.RegisterActivity">
         </activity>
         <activity android:name=".loginActivity.LoginActivity">
             <intent-filter>

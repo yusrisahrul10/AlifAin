@@ -18,6 +18,10 @@ class CategoryFragment : Fragment() {
 
     private var items: MutableList<CategoryModel> = mutableListOf()
 
+
+    companion object {
+        var PUTEXTRA_CLUB = "putextra_club"
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,6 +35,7 @@ class CategoryFragment : Fragment() {
         list.layoutManager = LinearLayoutManager(context)
         list.adapter = CategoryAdapter(context, items) {
             val intent = Intent(context, DetailCategoryActivity::class.java)
+            intent.putExtra("id", CategoryModel(it.name,it.image))
             startActivity(intent)
         }
 

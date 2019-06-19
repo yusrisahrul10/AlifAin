@@ -30,4 +30,7 @@ interface ApiInterface {
     @GET("Barang")
     fun getDetailBarang(@Query("id_barang") id_barang : String) : Call<BarangResponse>
 
+    @GET("Barang/categorybarang")
+    fun getListFromCategory(@Query("category") category : String)  : Call<BarangResponse>
+
 }

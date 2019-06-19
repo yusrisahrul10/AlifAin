@@ -5,9 +5,10 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
-import com.example.alifain.ProductDetailActivity
+import com.example.alifain.detailBarang.ProductDetailActivity
 import com.example.alifain.R
 import com.example.alifain.adapter.NewProductAdapter
+import com.example.alifain.adapter.ProductAdapter
 import com.example.alifain.model.ProductModel
 
 class DetailCategoryActivity : AppCompatActivity() {
@@ -18,13 +19,12 @@ class DetailCategoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_category)
 
-        val list = findViewById<RecyclerView>(R.id.new_product_list)
+        val list = findViewById<RecyclerView>(R.id.rv_category_product_list)
         initData()
 
         list.layoutManager = GridLayoutManager(this, 2)
-        list.adapter = NewProductAdapter(this, items) {
-            val intent = Intent(this, ProductDetailActivity::class.java)
-            startActivity(intent)
+        list.adapter = ProductAdapter(this, items) {
+           
         }
 
     }

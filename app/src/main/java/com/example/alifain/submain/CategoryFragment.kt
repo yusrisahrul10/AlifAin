@@ -9,8 +9,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.alifain.ProductDetailActivity
-
 import com.example.alifain.R
 import com.example.alifain.adapter.CategoryAdapter
 import com.example.alifain.category.DetailCategoryActivity

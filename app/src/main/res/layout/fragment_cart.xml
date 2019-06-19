@@ -42,7 +42,7 @@
             <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-            android:id="@+id/cv_1">
+                    android:id="@+id/cv_1">
 
                 <LinearLayout
                         android:layout_width="match_parent"
@@ -136,33 +136,6 @@
 
                                 />
 
-                                <ImageView
-                                        android:id="@+id/imageView4"
-                                        android:layout_width="10dp"
-                                        android:layout_height="10dp"
-                                        android:layout_marginEnd="8dp"
-                                        app:srcCompat="@drawable/remove" />
-
-                                <TextView
-                                        android:id="@+id/textView8"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:background="#64FFDA"
-                                        android:gravity="center"
-                                        android:layout_marginEnd="8dp"
-                                        android:layout_marginStart="8dp"
-                                        android:text="1"
-                                        android:textColor="@android:color/black"
-                                        android:textSize="8sp"
-                                        android:textStyle="bold" />
-
-                                <ImageView
-                                        android:id="@+id/imageView5"
-                                        android:layout_width="10dp"
-                                        android:layout_marginStart="8dp"
-
-                                        android:layout_height="10dp"
-                                        app:srcCompat="@drawable/add" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -271,33 +244,7 @@
 
                                 />
 
-                                <ImageView
-                                        android:id="@+id/imageView7"
-                                        android:layout_width="10dp"
-                                        android:layout_height="10dp"
-                                        android:layout_marginEnd="8dp"
-                                        app:srcCompat="@drawable/remove" />
 
-                                <TextView
-                                        android:id="@+id/textView9"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:background="#64FFDA"
-                                        android:gravity="center"
-                                        android:layout_marginEnd="8dp"
-                                        android:layout_marginStart="8dp"
-                                        android:text="1"
-                                        android:textColor="@android:color/black"
-                                        android:textSize="8sp"
-                                        android:textStyle="bold" />
-
-                                <ImageView
-                                        android:id="@+id/imageView8"
-                                        android:layout_width="10dp"
-                                        android:layout_marginStart="8dp"
-
-                                        android:layout_height="10dp"
-                                        app:srcCompat="@drawable/add" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -405,33 +352,7 @@
 
                                 />
 
-                                <ImageView
-                                        android:id="@+id/imageView4"
-                                        android:layout_width="10dp"
-                                        android:layout_height="10dp"
-                                        android:layout_marginEnd="8dp"
-                                        app:srcCompat="@drawable/remove" />
-
-                                <TextView
-                                        android:id="@+id/textView8"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:background="#64FFDA"
-                                        android:gravity="center"
-                                        android:layout_marginEnd="8dp"
-                                        android:layout_marginStart="8dp"
-                                        android:text="1"
-                                        android:textColor="@android:color/black"
-                                        android:textSize="8sp"
-                                        android:textStyle="bold" />
-
-                                <ImageView
-                                        android:id="@+id/imageView5"
-                                        android:layout_width="10dp"
-                                        android:layout_marginStart="8dp"
-
-                                        android:layout_height="10dp"
-                                        app:srcCompat="@drawable/add" />
+                                
                             </LinearLayout>
 
                         </LinearLayout>
@@ -481,7 +402,7 @@
 
 
                 <Button
-                        android:id="@+id/button3"
+                        android:id="@+id/btnCheckout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"

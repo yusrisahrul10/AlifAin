@@ -62,6 +62,14 @@
                         android:fontFamily="@font/berlinsans"
                         android:textColor="@android:color/black"/>
 
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/berlinsans"
+                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non interdum erat. Integer pellentesque lobortis lorem. Nullam eleifend purus ex, gravida euismod nibh ornare vel. Mauris ac nibh ante. Proin vel mauris tortor. Praesent eros erat, tincidunt ac nisi vitae, placerat sollicitudin diam. Integer sollicitudin blandit nunc, quis ornare elit gravida sit amet."
+                />
+
             </LinearLayout>
 
 
@@ -231,12 +239,73 @@
             </LinearLayout>
 
             <LinearLayout
+                    android:id="@+id/ll_qty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll_size"
+                    android:background="#fff"
+                    android:orientation="vertical"
+            >
+
+
+                <TextView
+                        android:id="@+id/quantitiy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Quantity"
+                        android:textColor="#404547" />
+
+
+                <LinearLayout
+                        android:id="@+id/ll_qty_product"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:orientation="horizontal">
+
+                    <Button
+                            android:id="@+id/btnMinus"
+                            android:layout_width="20dp"
+                            android:layout_height="21dp"
+                            android:layout_marginEnd="8dp"
+                            android:text="-"
+                            android:textStyle="bold"
+                            android:background="@drawable/rect"/>
+
+                    <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginStart="8dp"
+                            android:text="1"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    <Button
+                            android:id="@+id/btnPlus"
+                            android:layout_width="20dp"
+                            android:layout_height="21dp"
+                            android:layout_marginStart="8dp"
+                            android:text="+"
+                            android:textStyle="bold"
+                            android:background="@drawable/rect"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
                     android:id="@+id/ll_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:padding="16dp"
-                    android:layout_below="@+id/ll_size"
+                    android:layout_below="@+id/ll_qty"
                     android:background="#fff"
                     android:gravity="center"
 

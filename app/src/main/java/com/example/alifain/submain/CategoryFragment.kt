@@ -1,6 +1,7 @@
 package com.example.alifain.submain
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -8,9 +9,11 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.alifain.ProductDetailActivity
 
 import com.example.alifain.R
 import com.example.alifain.adapter.CategoryAdapter
+import com.example.alifain.category.DetailCategoryActivity
 import com.example.alifain.model.CategoryModel
 
 class CategoryFragment : Fragment() {
@@ -28,7 +31,10 @@ class CategoryFragment : Fragment() {
         initData()
 
         list.layoutManager = LinearLayoutManager(context)
-        list.adapter = CategoryAdapter(context, items)
+        list.adapter = CategoryAdapter(context, items) {
+            val intent = Intent(context, DetailCategoryActivity::class.java)
+            startActivity(intent)
+        }
 
         return view
     }

@@ -11,7 +11,8 @@ import com.example.alifain.R
 import com.example.alifain.model.CategoryModel
 import com.squareup.picasso.Picasso
 
-class CategoryAdapter(private val context: Context?, private val items: List<CategoryModel>)
+class CategoryAdapter(private val context: Context?, private val items: List<CategoryModel>,
+                      private val listener: (CategoryModel) -> Unit)
     : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_category, parent, false))
@@ -19,16 +20,20 @@ class CategoryAdapter(private val context: Context?, private val items: List<Cat
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: CategoryAdapter.ViewHolder, position: Int) {
-        holder.bindItem(items[position])
+        holder.bindItem(items[position], listener)
     }
 
     class ViewHolder(view: View) :RecyclerView.ViewHolder(view) {
         private val name = view.findViewById<TextView>(R.id.name)
         private val image = view.findViewById<ImageView>(R.id.image)
 
-        fun bindItem(items: CategoryModel) {
+        fun bindItem(items: CategoryModel, listener: (CategoryModel) -> Unit) {
             name.text = items.name
             items.image?.let { Picasso.get().load(it).into(image) }
+
+            itemView.setOnClickListener {
+                listener(items)
+            }
         }
     }
 }

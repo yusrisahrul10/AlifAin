@@ -46,6 +46,7 @@ class LoginPresenter(private val view: LoginView, private val apiRepository: Api
                 myPreference?.setEmail(emailUser.toString())
                 myPreference?.setAlamat(alamat.toString())
                 myPreference?.setNoHp(nohp.toString())
+                Log.e("tag", "responsennya ${push}")
 
                 if (push.equals("sukses")) {
                     Toast.makeText(context, "Login berhasil ", Toast.LENGTH_SHORT).show()
@@ -53,9 +54,6 @@ class LoginPresenter(private val view: LoginView, private val apiRepository: Api
                 } else{
                     Toast.makeText(context, "Username dan Password Salah", Toast.LENGTH_SHORT).show()
                 }
-
-                Log.e("tag", "responsennya ${id_user}")
-
             }
 
         })

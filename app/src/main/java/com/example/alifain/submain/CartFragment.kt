@@ -11,6 +11,7 @@ import android.widget.Button
 import com.example.alifain.CheckoutActivity
 
 import com.example.alifain.R
+import com.example.alifain.TransactionActivity
 
 class CartFragment : Fragment() {
 

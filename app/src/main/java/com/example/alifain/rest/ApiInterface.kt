@@ -4,6 +4,7 @@ package com.example.alifain.rest
 import com.example.alifain.model.barang.BarangResponse
 import com.example.alifain.model.cart.CartResponses
 import com.example.alifain.model.keranjang.KeranjangResponses
+import com.example.alifain.model.kota.RajaOngkirResponse
 import com.example.alifain.model.login.LoginRespones
 import com.example.alifain.model.provinsi.RajaOngkirResponses
 import retrofit2.Call
@@ -50,5 +51,9 @@ interface ApiInterface {
     @Headers("key:ee7be574f8c38cfef3420c8634acea41")
     @GET("province")
     fun getProvinsi() : Call<RajaOngkirResponses>
+
+    @Headers("key:ee7be574f8c38cfef3420c8634acea41")
+    @GET("city")
+    fun getKota(@Query("province") province : String) : Call<RajaOngkirResponse>
 
 }

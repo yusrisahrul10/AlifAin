@@ -44,6 +44,7 @@
                     android:layout_marginStart="16dp"
                     android:paddingTop="16dp"
                     android:background="@drawable/custom_spinner_background"
+                    android:id="@+id/spinnerProv"
             >
 
             </Spinner>
@@ -64,52 +65,53 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="16dp"
                     android:paddingTop="16dp"
+                    android:id="@+id/spinnerKota"
                     android:background="@drawable/custom_spinner_background"
             >
 
             </Spinner>
 
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/berlinsans"
-                    android:padding="8dp"
-                    android:layout_margin="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="Kecamatan"
-                    android:textSize="18sp"/>
+            <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:fontFamily="@font/berlinsans"-->
+                    <!--android:padding="8dp"-->
+                    <!--android:layout_margin="16dp"-->
+                    <!--android:layout_marginBottom="8dp"-->
+                    <!--android:text="Kecamatan"-->
+                    <!--android:textSize="18sp"/>-->
 
-            <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="16dp"
-                    android:paddingTop="16dp"
-                    android:background="@drawable/custom_spinner_background"
-            >
+            <!--<Spinner-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="40dp"-->
+                    <!--android:layout_marginEnd="20dp"-->
+                    <!--android:layout_marginStart="16dp"-->
+                    <!--android:paddingTop="16dp"-->
+                    <!--android:background="@drawable/custom_spinner_background"-->
+            <!--&gt;-->
 
-            </Spinner>
+            <!--</Spinner>-->
 
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/berlinsans"
-                    android:padding="8dp"
-                    android:layout_margin="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="Kode Pos"
-                    android:textSize="18sp"/>
+            <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:fontFamily="@font/berlinsans"-->
+                    <!--android:padding="8dp"-->
+                    <!--android:layout_margin="16dp"-->
+                    <!--android:layout_marginBottom="8dp"-->
+                    <!--android:text="Kode Pos"-->
+                    <!--android:textSize="18sp"/>-->
 
-            <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="16dp"
-                    android:paddingTop="16dp"
-                    android:background="@drawable/custom_spinner_background"
-            >
+            <!--<Spinner-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="40dp"-->
+                    <!--android:layout_marginEnd="20dp"-->
+                    <!--android:layout_marginStart="16dp"-->
+                    <!--android:paddingTop="16dp"-->
+                    <!--android:background="@drawable/custom_spinner_background"-->
+            <!--&gt;-->
 
-            </Spinner>
+            <!--</Spinner>-->
 
             <TextView
                     android:layout_width="wrap_content"

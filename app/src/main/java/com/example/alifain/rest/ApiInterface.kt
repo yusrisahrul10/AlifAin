@@ -44,7 +44,7 @@ interface ApiInterface {
     fun keranjangAction(
         @Field("id_user") id_user : String,
         @Field("id_barang") id_barang : String,
-        @Field("qty") qty : String
+        @Field("qty") qty : Int
     ) : Call<KeranjangResponses>
 
     @Headers("key:ee7be574f8c38cfef3420c8634acea41")

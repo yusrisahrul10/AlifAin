@@ -75,176 +75,176 @@
             </LinearLayout>
 
 
-            <LinearLayout
-                    android:id="@+id/ll_colour"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/ll_detail_product"
-                    android:background="#fff"
-                    android:orientation="vertical"
-            >
+            <!--<LinearLayout-->
+                    <!--android:id="@+id/ll_colour"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_below="@+id/ll_detail_product"-->
+                    <!--android:background="#fff"-->
+                    <!--android:orientation="vertical"-->
+            <!--&gt;-->
 
 
-                <TextView
-                        android:id="@+id/colortext"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="16dp"
-                        android:fontFamily="@font/berlinsans"
-                        android:layout_marginTop="16dp"
-                        android:text="Colour"
-                        android:textColor="#404547" />
+                <!--<TextView-->
+                        <!--android:id="@+id/colortext"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:layout_marginLeft="16dp"-->
+                        <!--android:fontFamily="@font/berlinsans"-->
+                        <!--android:layout_marginTop="16dp"-->
+                        <!--android:text="Colour"-->
+                        <!--android:textColor="#404547" />-->
 
 
-                <LinearLayout
-                        android:id="@+id/colorcircle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="25dp"
-                        android:orientation="horizontal">
+                <!--<LinearLayout-->
+                        <!--android:id="@+id/colorcircle"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="25dp"-->
+                        <!--android:orientation="horizontal">-->
 
 
-                    <!--******YELLOW COLOUR**********-->
-                    <FrameLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1">
+                    <!--&lt;!&ndash;******YELLOW COLOUR**********&ndash;&gt;-->
+                    <!--<FrameLayout-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_gravity="center"-->
+                            <!--android:layout_margin="10dp"-->
+                            <!--android:layout_weight="1">-->
 
 
-                        <ImageView
-                                android:id="@+id/yellow1"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
-                                android:layout_gravity="center"
-                                android:background="@drawable/white"
+                        <!--<ImageView-->
+                                <!--android:id="@+id/yellow1"-->
+                                <!--android:layout_width="40dp"-->
+                                <!--android:layout_height="40dp"-->
+                                <!--android:layout_gravity="center"-->
+                                <!--android:background="@drawable/white"-->
 
-                        />
-                    </FrameLayout>
-
-
-                    <!--******BLUE COLOUR**********-->
-                    <FrameLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1">
+                        <!--/>-->
+                    <!--</FrameLayout>-->
 
 
-                        <ImageView
-                                android:id="@+id/blue1"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
-                                android:layout_gravity="center"
-                                android:background="@drawable/gray"
-
-                        />
-
-                    </FrameLayout>
-
-                    <!--******RED COLOUR**********-->
-                    <FrameLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1">
+                    <!--&lt;!&ndash;******BLUE COLOUR**********&ndash;&gt;-->
+                    <!--<FrameLayout-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_gravity="center"-->
+                            <!--android:layout_margin="10dp"-->
+                            <!--android:layout_weight="1">-->
 
 
-                        <ImageView
-                                android:id="@+id/red1"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
-                                android:layout_gravity="center"
-                                android:background="@drawable/black"
+                        <!--<ImageView-->
+                                <!--android:id="@+id/blue1"-->
+                                <!--android:layout_width="40dp"-->
+                                <!--android:layout_height="40dp"-->
+                                <!--android:layout_gravity="center"-->
+                                <!--android:background="@drawable/gray"-->
 
-                        />
+                        <!--/>-->
 
-                    </FrameLayout>
+                    <!--</FrameLayout>-->
 
-                </LinearLayout>
-            </LinearLayout>
-
-
-            <LinearLayout
-                    android:id="@+id/ll_size"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/ll_colour"
-                    android:background="#fff"
-                    android:orientation="vertical"
-            >
+                    <!--&lt;!&ndash;******RED COLOUR**********&ndash;&gt;-->
+                    <!--<FrameLayout-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_gravity="center"-->
+                            <!--android:layout_margin="10dp"-->
+                            <!--android:layout_weight="1">-->
 
 
-                <TextView
-                        android:id="@+id/sizetext"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="16dp"
-                        android:text="Size"
-                        android:textColor="#404547" />
+                        <!--<ImageView-->
+                                <!--android:id="@+id/red1"-->
+                                <!--android:layout_width="40dp"-->
+                                <!--android:layout_height="40dp"-->
+                                <!--android:layout_gravity="center"-->
+                                <!--android:background="@drawable/black"-->
+
+                        <!--/>-->
+
+                    <!--</FrameLayout>-->
+
+                <!--</LinearLayout>-->
+            <!--</LinearLayout>-->
 
 
-                <LinearLayout
-                        android:id="@+id/sizecircle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="25dp"
-                        android:orientation="horizontal">
+            <!--<LinearLayout-->
+                    <!--android:id="@+id/ll_size"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_below="@+id/ll_colour"-->
+                    <!--android:background="#fff"-->
+                    <!--android:orientation="vertical"-->
+            <!--&gt;-->
 
-                    <TextView
-                            android:layout_width="34dp"
-                            android:layout_height="34dp"
-                            android:text="S"
-                            android:background="@drawable/sizeround1"
-                            android:layout_margin="5dp"
-                            android:fontFamily="@font/berlinsans"
-                            android:layout_gravity="center"
-                            android:gravity="center"
 
-                    />
-                    <TextView
-                            android:layout_width="34dp"
-                            android:layout_height="34dp"
-                            android:text="M"
-                            android:background="@drawable/sizeround1"
-                            android:layout_margin="5dp"
-                            android:layout_gravity="center"
-                            android:gravity="center"
+                <!--<TextView-->
+                        <!--android:id="@+id/sizetext"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:layout_marginLeft="16dp"-->
+                        <!--android:layout_marginTop="16dp"-->
+                        <!--android:text="Size"-->
+                        <!--android:textColor="#404547" />-->
 
-                    />
-                    <TextView
-                            android:layout_width="34dp"
-                            android:layout_height="34dp"
-                            android:text="L"
-                            android:background="@drawable/sizeround1"
-                            android:layout_margin="5dp"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                    />
-                    <TextView
-                            android:layout_width="34dp"
-                            android:layout_height="34dp"
-                            android:text="XL"
-                            android:background="@drawable/sizeround1"
-                            android:layout_margin="5dp"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                    />
 
-                </LinearLayout>
-            </LinearLayout>
+                <!--<LinearLayout-->
+                        <!--android:id="@+id/sizecircle"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="25dp"-->
+                        <!--android:orientation="horizontal">-->
+
+                    <!--<TextView-->
+                            <!--android:layout_width="34dp"-->
+                            <!--android:layout_height="34dp"-->
+                            <!--android:text="S"-->
+                            <!--android:background="@drawable/sizeround1"-->
+                            <!--android:layout_margin="5dp"-->
+                            <!--android:fontFamily="@font/berlinsans"-->
+                            <!--android:layout_gravity="center"-->
+                            <!--android:gravity="center"-->
+
+                    <!--/>-->
+                    <!--<TextView-->
+                            <!--android:layout_width="34dp"-->
+                            <!--android:layout_height="34dp"-->
+                            <!--android:text="M"-->
+                            <!--android:background="@drawable/sizeround1"-->
+                            <!--android:layout_margin="5dp"-->
+                            <!--android:layout_gravity="center"-->
+                            <!--android:gravity="center"-->
+
+                    <!--/>-->
+                    <!--<TextView-->
+                            <!--android:layout_width="34dp"-->
+                            <!--android:layout_height="34dp"-->
+                            <!--android:text="L"-->
+                            <!--android:background="@drawable/sizeround1"-->
+                            <!--android:layout_margin="5dp"-->
+                            <!--android:layout_gravity="center"-->
+                            <!--android:gravity="center"-->
+                    <!--/>-->
+                    <!--<TextView-->
+                            <!--android:layout_width="34dp"-->
+                            <!--android:layout_height="34dp"-->
+                            <!--android:text="XL"-->
+                            <!--android:background="@drawable/sizeround1"-->
+                            <!--android:layout_margin="5dp"-->
+                            <!--android:layout_gravity="center"-->
+                            <!--android:gravity="center"-->
+                    <!--/>-->
+
+                <!--</LinearLayout>-->
+            <!--</LinearLayout>-->
 
             <LinearLayout
                     android:id="@+id/ll_qty"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/ll_size"
+                    android:layout_below="@+id/ll_detail_product"
                     android:background="#fff"
                     android:orientation="vertical"
             >
@@ -265,7 +265,8 @@
                         android:id="@+id/ll_qty_product"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="25dp"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="8dp"
                         android:orientation="horizontal">
 
                     <Button
@@ -278,13 +279,12 @@
                             android:background="@drawable/rect"/>
 
                     <TextView
-                            android:id="@+id/textView8"
+                            android:id="@+id/tvQuantity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:layout_marginEnd="8dp"
                             android:layout_marginStart="8dp"
-                            android:text="1"
                             android:textColor="@android:color/black"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -334,7 +334,6 @@
                         android:background="#00000000"
                         android:textSize="18sp"
                         android:textColor="@android:color/black"
-                        android:text="$ 858.00"
                         android:gravity="end"
                         android:fontFamily="@font/berlinsans"
                         android:textStyle="bold"

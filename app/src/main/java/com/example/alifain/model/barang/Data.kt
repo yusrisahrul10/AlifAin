@@ -4,7 +4,7 @@ data class Data(
     val berat: String,
     val category: String,
     val deskripsi: String,
-    val harga: String,
+    val harga: Int,
     val id_barang: String,
     val nama_barang: String,
     val nama_gambar: String,

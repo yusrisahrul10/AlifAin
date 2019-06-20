@@ -20,7 +20,7 @@ class CheckoutActivity : AppCompatActivity() , CheckoutView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_checkout)
 
-        btnPesanan = findViewById(R.id.btnBuatPesanan)
+        btnPesanan = findViewById(R.id.btnPesanan)
         val apiRepository = ApiRepository()
         presenter = CheckoutPresenter(this,apiRepository)
         presenter.getListProvinsi()

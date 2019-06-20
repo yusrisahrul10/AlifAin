@@ -13,7 +13,8 @@ class CheckoutActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_checkout)
 
-        btnPesanan = findViewById(R.id.btnBuatPesanan)
+        btnPesanan = findViewById(R.id.btnPesanan)
+
         btnPesanan.setOnClickListener {
             val intent = Intent(this, TransactionActivity::class.java)
             startActivity(intent)

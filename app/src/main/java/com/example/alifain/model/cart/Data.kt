@@ -8,5 +8,6 @@ data class Data(
     val id_user: String,
     val nama_barang: String,
     val nama_gambar: String,
-    val qty: String
+    val qty: Int,
+    val subtotal: Int
 )

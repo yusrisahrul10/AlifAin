@@ -6,4 +6,5 @@ interface DetailView {
     fun showDetailBarang(data : Data)
     fun showLoading()
     fun hideLoading()
+    fun moveToHomeFragment()
 }

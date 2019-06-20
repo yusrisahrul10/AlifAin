@@ -2,7 +2,7 @@ package com.example.alifain
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.example.alifain.submain.CartFragment
+import com.example.alifain.submain.cart.CartFragment
 import com.example.alifain.submain.CategoryFragment
 import com.example.alifain.submain.home.HomeFragment
 import com.example.alifain.submain.ProfileFragment

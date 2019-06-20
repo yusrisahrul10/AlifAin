@@ -2,6 +2,8 @@ package com.example.alifain.rest
 
 
 import com.example.alifain.model.barang.BarangResponse
+import com.example.alifain.model.cart.CartResponses
+import com.example.alifain.model.keranjang.KeranjangResponses
 import com.example.alifain.model.login.LoginRespones
 import retrofit2.Call
 import retrofit2.http.*
@@ -32,5 +34,16 @@ interface ApiInterface {
 
     @GET("Barang/categorybarang")
     fun getListFromCategory(@Query("category") category : String)  : Call<BarangResponse>
+
+    @GET("Barang/KeranjangList")
+    fun getListCart(@Query("id_user") id_user : String) : Call<CartResponses>
+
+    @FormUrlEncoded
+    @POST("Barang/keranjang")
+    fun keranjangAction(
+        @Field("id_user") id_user : String,
+        @Field("id_barang") id_barang : String,
+        @Field("qty") qty : String
+    ) : Call<KeranjangResponses>
 
 }

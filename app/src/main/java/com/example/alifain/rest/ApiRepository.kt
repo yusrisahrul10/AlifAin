@@ -20,6 +20,26 @@ class ApiRepository {
 
         retrofit = Retrofit.Builder()
             .baseUrl("http://alifain.dscunikom.com/api/")
+
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .client(httpClient.build())
+            .build()
+        return retrofit
+    }
+    fun getRajaOngkir(): Retrofit {
+        var retrofit: Retrofit? = null
+        val gson = GsonBuilder()
+            .setLenient()
+            .create()
+
+        val logging = HttpLoggingInterceptor()
+        logging.level = HttpLoggingInterceptor.Level.BODY
+        val httpClient = OkHttpClient.Builder()
+        httpClient.addInterceptor(logging)
+
+        retrofit = Retrofit.Builder()
+            .baseUrl("https://api.rajaongkir.com/starter/")
+
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(httpClient.build())
             .build()

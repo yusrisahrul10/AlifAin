@@ -5,6 +5,7 @@ import com.example.alifain.model.barang.BarangResponse
 import com.example.alifain.model.cart.CartResponses
 import com.example.alifain.model.keranjang.KeranjangResponses
 import com.example.alifain.model.login.LoginRespones
+import com.example.alifain.model.provinsi.RajaOngkirResponses
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -45,5 +46,9 @@ interface ApiInterface {
         @Field("id_barang") id_barang : String,
         @Field("qty") qty : String
     ) : Call<KeranjangResponses>
+
+    @Headers("key:ee7be574f8c38cfef3420c8634acea41")
+    @GET("province")
+    fun getProvinsi() : Call<RajaOngkirResponses>
 
 }

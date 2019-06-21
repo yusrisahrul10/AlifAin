@@ -78,11 +78,12 @@
                     <!--android:padding="8dp"-->
                     <!--android:layout_margin="16dp"-->
                     <!--android:layout_marginBottom="8dp"-->
-                    <!--android:text="Kecamatan"-->
+                    <!--android:text="Paket JNE"-->
                     <!--android:textSize="18sp"/>-->
 
             <!--<Spinner-->
                     <!--android:layout_width="match_parent"-->
+                    <!--android:id="@+id/spinnerJne"-->
                     <!--android:layout_height="40dp"-->
                     <!--android:layout_marginEnd="20dp"-->
                     <!--android:layout_marginStart="16dp"-->
@@ -126,6 +127,7 @@
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/edtAlamatCekout"
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="16dp"
                     android:paddingTop="8dp"
@@ -149,14 +151,14 @@
                         android:textStyle="bold" />
 
                 <TextView
-                        android:id="@+id/textView4"
+                        android:id="@+id/txtSubTotal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="end"
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="16dp"
-                        android:text="Rp. 144.000"
+
                         android:fontFamily="@font/berlinsans"/>
 
             </LinearLayout>
@@ -171,7 +173,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Subtotal Produk"
+                        android:text="Ongkos Kirim"
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="16dp"
                         android:fontFamily="@font/berlinsans"
@@ -181,10 +183,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:id="@+id/txtOngkir"
                         android:gravity="end"
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="16dp"
-                        android:text="Rp. 10.000"
+
                         android:fontFamily="@font/berlinsans"/>
 
             </LinearLayout>
@@ -209,10 +212,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:id="@+id/txtTotalBayar"
                         android:gravity="end"
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="16dp"
-                        android:text="Rp. 155.000"
+
                         android:textStyle="bold"
                         android:fontFamily="@font/berlinsans"/>
 

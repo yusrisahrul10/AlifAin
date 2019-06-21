@@ -21,8 +21,10 @@ class CartPresenter(private val view: CartView, private val apiRepository: ApiRe
             override fun onResponse(call: Call<CartResponses>, response: Response<CartResponses>) {
                 val get : List<Data>? = response.body()?.data
                 val harga: Int? = response.body()?.total_harga
+                val gram : Int? = response.body()?.total_gram
                 view.showListCart(get!!)
                 view.showTotalHarga(harga!!)
+                view.showTotalGram(gram!!)
             }
 
         })

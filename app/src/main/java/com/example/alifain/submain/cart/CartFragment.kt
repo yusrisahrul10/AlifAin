@@ -31,7 +31,8 @@ class CartFragment : Fragment() , CartView {
     private lateinit var myPreference: MyPreference
 
     private lateinit var tvTotalHarga: TextView
-
+    var totalgram : Int = 0
+    var totalHarga : Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,6 +48,8 @@ class CartFragment : Fragment() , CartView {
         presenter.getListCart(myPreference.getIdUser())
         btnCheckout.setOnClickListener {
             val intent = Intent(context, CheckoutActivity::class.java)
+            intent.putExtra("total_gram",totalgram)
+            intent.putExtra("total_harga",totalHarga)
             startActivity(intent)
         }
 
@@ -78,6 +81,10 @@ class CartFragment : Fragment() , CartView {
 
     override fun showTotalHarga(harga: Int) {
         tvTotalHarga.text = "Rp. " + harga
+        totalHarga = harga
+    }
+    override fun showTotalGram(gram: Int) {
+        totalgram = gram
     }
 
 }

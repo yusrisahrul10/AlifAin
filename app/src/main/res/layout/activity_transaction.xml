@@ -4,7 +4,7 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".TransactionActivity">
+            tools:context=".transaksiActivity.TransactionActivity">
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -78,11 +78,11 @@
                             android:layout_marginTop="8dp">
 
                         <TextView
-                                android:id="@+id/tv_tgl_transaksi"
+                                android:id="@+id/txtTglTransaksi"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="17 Agustus 2019"
+
                                 android:layout_marginStart="8dp"
                                 android:layout_marginEnd="8dp"
                                 android:fontFamily="@font/berlinsans"
@@ -136,7 +136,7 @@
                                 android:textStyle="bold" />
 
                         <TextView
-                                android:id="@+id/tv_ttl_barang"
+                                android:id="@+id/tv_total_barang"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -165,7 +165,7 @@
                                 android:fontFamily="@font/berlinsans"/>
 
                         <TextView
-                                android:id="@+id/tv_ttl_ongkir"
+                                android:id="@+id/tv_total_ongkir"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -194,7 +194,7 @@
                                 android:fontFamily="@font/berlinsans"/>
 
                         <TextView
-                                android:id="@+id/tv_ttl_bayar"
+                                android:id="@+id/tv_total_bayar"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -232,10 +232,10 @@
                             android:layout_marginStart="8dp"/>
 
                     <TextView
-                            android:id="@+id/textView15"
+                            android:id="@+id/txtAlamatTransaksi"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Jl.Kenangan"
+
                             android:layout_margin="8dp"
                             android:textColor="@android:color/black"
                             android:fontFamily="@font/berlinsans"/>
@@ -360,7 +360,7 @@
         </android.support.v7.widget.CardView>
 
         <Button
-                android:id="@+id/button"
+                android:id="@+id/buttonSubmit"
                 android:layout_width="match_parent"
                 android:layout_height="33dp"
                 android:layout_gravity="center"

@@ -89,7 +89,7 @@ class HomeFragment : Fragment(), BannerListener, HomeView {
 
     override fun showBarang(data: List<Data>) {
         items.addAll(data)
-//        list.adapter = NewProductAdapter(context,{ itemBarang : Data -> itemClick(itemBarang)})
+//        list.adapter = NewProductAdapter(context,{ itemBarang : DataTransaksi -> itemClick(itemBarang)})
         list.adapter = NewProductAdapter(context, items, { itemMatch: Data -> itemClick(itemMatch) })
         list.layoutManager = GridLayoutManager(context, 2)
         (list.adapter as NewProductAdapter).notifyDataSetChanged()

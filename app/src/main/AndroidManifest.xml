@@ -14,16 +14,22 @@
             android:theme="@style/AppTheme">
         <activity android:name=".EditProfileActivity">
         </activity>
-        <activity android:name=".TransactionActivity">
+        <activity android:name=".transaksiActivity.TransactionActivity"
+                  android:screenOrientation="portrait">
+            >
         </activity>
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".SplashScreenActivity"
+                  android:screenOrientation="portrait">
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".checkoutActivity.CheckoutActivity">
+        <activity android:name=".checkoutActivity.CheckoutActivity"
+                  android:screenOrientation="portrait">
+            >
         </activity>
         <activity
                 android:name=".detailBarang.ProductDetailActivity"

@@ -10,20 +10,17 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.alifain.R
-import com.example.alifain.model.cart.CartResponses
 import com.example.alifain.model.cart.Data
 import com.example.alifain.model.deletekeranjang.DeleteKeranjangResponse
 import com.example.alifain.rest.ApiInterface
 import com.example.alifain.rest.ApiRepository
-import com.example.alifain.submain.cart.CartPresenter
-import com.example.alifain.submain.cart.DeleteCartPresenter
 import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class CartAdapter(private val context: Context?, private var items: MutableList<Data> = mutableListOf(),
-                  private val listener: (Data) -> Unit, private var tvTotalHarga: TextView)
+                  private val listener: (Data) -> Unit, private var tvTotalHarga: TextView )
     : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
 
 //    private lateinit var presenter :DeleteCartPresenter
@@ -51,27 +48,7 @@ class CartAdapter(private val context: Context?, private var items: MutableList<
             Log.e("get id_barang", id_barang)
             Log.e("get id_user", id_user)
 
-            deleteCart(id_user, id_barang) //            presenter.deletedCart(id_barang, id_user)
-
-            var harga = 0
-
-            val connect: ApiInterface = apiRepository.getUrl().create(ApiInterface::class.java)
-            connect.getListCart(id_user).enqueue(object : Callback<CartResponses> {
-                override fun onFailure(call: Call<CartResponses>, t: Throwable) {
-
-                }
-
-                override fun onResponse(call: Call<CartResponses>, response: Response<CartResponses>) {
-                    val get : List<Data>? = response.body()?.data
-                    val harga: Int? = response.body()?.total_harga
-                    tvTotalHarga.text = "Rp. " + harga
-                }
-
-            })
-
-            Log.e("harga baru 2", harga.toString())
-            tvTotalHarga.text = "Rp. " + harga
-
+            deleteCart(id_user, id_barang)
             items.removeAt(position)
         }
     }
@@ -99,26 +76,9 @@ class CartAdapter(private val context: Context?, private var items: MutableList<
         }
     }
 
-//    private fun deleteCart(id_user: String, id_barang: String) {
-//        val connect : ApiInterface = apiRepository.getUrl().create(ApiInterface::class.java)
-//
-//        connect.deleteKeranjang(id_user, id_barang).enqueue(object : Callback<DeleteKeranjangResponse> {
-//            override fun onFailure(call: Call<DeleteKeranjangResponse>, t: Throwable) {
-//
-//            }
-//
-//            override fun onResponse(call: Call<DeleteKeranjangResponse>, response: Response<DeleteKeranjangResponse>) {
-//                val push : String? = response.body()?.messaage
-//
-//                Log.e("tag", "RESPONE CART ${push}")
-//            }
-//
-//        })
-//    }
-
     private fun deleteCart(id_user : String, id_barang: String) {
-        val connect : ApiInterface = apiRepository.getUrl().create(ApiInterface::class.java)
 
+        val connect : ApiInterface = apiRepository.getUrl().create(ApiInterface::class.java)
         connect.deleteKeranjang(id_user, id_barang).enqueue(object : Callback<DeleteKeranjangResponse> {
             override fun onFailure(call: Call<DeleteKeranjangResponse>, t: Throwable) {
                 Log.e("gagal", t.message)
@@ -126,6 +86,9 @@ class CartAdapter(private val context: Context?, private var items: MutableList<
 
             override fun onResponse(call: Call<DeleteKeranjangResponse>, response: Response<DeleteKeranjangResponse>) {
                 val push : String? = response.body()?.messaage
+                val harga : Int? = response.body()?.total_harga
+                tvTotalHarga.text = "Rp. " + harga
+
                 notifyDataSetChanged()
                 Log.e("size item", items.size.toString())
 //                  og.e("DELETE", "RESPONE CART $push")

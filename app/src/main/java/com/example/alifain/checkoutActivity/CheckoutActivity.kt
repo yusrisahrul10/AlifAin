@@ -55,7 +55,7 @@ class CheckoutActivity : AppCompatActivity(), CheckoutView {
         edtAlamat = findViewById(R.id.edtAlamatCekout)
 //        spinnerJne = findViewById(R.id.spinnerJne)
         totalgram = intent.getIntExtra("total_gram", 0)
-        totalHarga = intent.getIntExtra("total_harga",0)
+
 //        Log.e("TOTAL GRAM", totalgram.toString())
         val apiRepository = ApiRepository()
         myPreference = MyPreference(this)
@@ -73,6 +73,7 @@ class CheckoutActivity : AppCompatActivity(), CheckoutView {
 
             }
         }
+
     }
     override fun moveIntent(id_transaksi : Int) {
         val intent = Intent(this, TransactionActivity::class.java)
@@ -91,6 +92,7 @@ class CheckoutActivity : AppCompatActivity(), CheckoutView {
 //                resultKota?.province_id = result.province_id
 //                Log.e("id result kota", resultKota!!.province_id)
                 presenter.getListKota(result.province_id)
+                totalPembayaran = 0
             }
 
 
@@ -110,7 +112,6 @@ class CheckoutActivity : AppCompatActivity(), CheckoutView {
                 kotaTujuan = resultKota.city_id
                 presenter.getCost("23", kotaTujuan, totalgram.toString(), "jne")
                 totalPembayaran()
-                totalPembayaran = totalOngkir + totalHarga
 
             }
 
@@ -118,8 +119,10 @@ class CheckoutActivity : AppCompatActivity(), CheckoutView {
     }
 
     override fun showCost(data: Int) {
-        totalPembayaran = totalOngkir + totalHarga
+//        totalPembayaran = totalOngkir + totalHarga
+
         totalOngkir = data
+        totalPembayaran = totalOngkir + totalHarga
         txtOngkir.text = "Rp. "+totalOngkir.toString()
     }
     override fun showLoading() {
@@ -130,6 +133,7 @@ class CheckoutActivity : AppCompatActivity(), CheckoutView {
 
     }
     private fun totalPembayaran(){
+        totalHarga = intent.getIntExtra("total_harga",0)
         txtSubTotal.text = "Rp. "+totalHarga.toString()
         txtTotalBayar.text = "Rp. "+totalPembayaran.toString()
     }

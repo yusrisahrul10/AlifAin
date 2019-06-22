@@ -67,6 +67,21 @@ interface ApiInterface {
 
     @Headers("key:ee7be574f8c38cfef3420c8634acea41")
     @GET("city")
-    fun getKota(@Query("province") province : String) : Call<RajaOngkirResponse>
+    fun getKota(@Query("province") province: String): Call<RajaOngkirResponse>
+
+
+//    @Target(METHOD)
+//    @Retention(AnnotationRetention.RUNTIME)
+//    @RestMet
+
+
+
+    @FormUrlEncoded
+//    @DELETE("Barang/deletekeranjang")
+    @HTTP(method = "DELETE", path = "Barang/deletekeranjang", hasBody = true)
+    fun deleteKeranjang(
+        @Field("id_user") id_user: String,
+        @Field("id_barang") id_barang: String
+    ): Call<DeleteKeranjangResponse>
 
 }

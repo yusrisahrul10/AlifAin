@@ -66,7 +66,7 @@ class CartFragment : Fragment() , CartView {
 
     override fun showListCart(data: List<Data>) {
         items.addAll(data)
-        list.adapter = CartAdapter(context, items, { itemMatch: Data -> itemClick(itemMatch) })
+        list.adapter = CartAdapter(context, items, { itemMatch: Data -> itemClick(itemMatch) }, tvTotalHarga)
         list.layoutManager = LinearLayoutManager(context)
         (list.adapter as CartAdapter).notifyDataSetChanged()
     }

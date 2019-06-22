@@ -2,6 +2,7 @@ package com.example.alifain.adapter
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,13 +10,27 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.alifain.R
+import com.example.alifain.model.cart.CartResponses
 import com.example.alifain.model.cart.Data
+import com.example.alifain.model.deletekeranjang.DeleteKeranjangResponse
+import com.example.alifain.rest.ApiInterface
+import com.example.alifain.rest.ApiRepository
+import com.example.alifain.submain.cart.CartPresenter
+import com.example.alifain.submain.cart.DeleteCartPresenter
 import com.squareup.picasso.Picasso
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class CartAdapter(private val context: Context?, private var items: MutableList<Data> = mutableListOf(),
-                  private val listener: (Data) -> Unit)
+                  private val listener: (Data) -> Unit, private var tvTotalHarga: TextView)
     : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
 
+//    private lateinit var presenter :DeleteCartPresenter
+
+    private lateinit var tvTtlHarga : TextView
+
+    val apiRepository = ApiRepository()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_cart, parent, false))
@@ -24,9 +39,40 @@ class CartAdapter(private val context: Context?, private var items: MutableList<
 
     override fun onBindViewHolder(holder: CartAdapter.ViewHolder, position: Int) {
         holder.bindItem(items[position], listener)
+
+//        presenter = DeleteCartPresenter(context, apiRepository)
+
         holder.remove.setOnClickListener {
+            val id_barang = items.get(position).id_barang
+            val id_user = items.get(position).id_user
+
+
+
+            Log.e("get id_barang", id_barang)
+            Log.e("get id_user", id_user)
+
+            deleteCart(id_user, id_barang) //            presenter.deletedCart(id_barang, id_user)
+
+            var harga = 0
+
+            val connect: ApiInterface = apiRepository.getUrl().create(ApiInterface::class.java)
+            connect.getListCart(id_user).enqueue(object : Callback<CartResponses> {
+                override fun onFailure(call: Call<CartResponses>, t: Throwable) {
+
+                }
+
+                override fun onResponse(call: Call<CartResponses>, response: Response<CartResponses>) {
+                    val get : List<Data>? = response.body()?.data
+                    val harga: Int? = response.body()?.total_harga
+                    tvTotalHarga.text = "Rp. " + harga
+                }
+
+            })
+
+            Log.e("harga baru 2", harga.toString())
+            tvTotalHarga.text = "Rp. " + harga
+
             items.removeAt(position)
-            notifyDataSetChanged()
         }
     }
 
@@ -53,4 +99,39 @@ class CartAdapter(private val context: Context?, private var items: MutableList<
         }
     }
 
+//    private fun deleteCart(id_user: String, id_barang: String) {
+//        val connect : ApiInterface = apiRepository.getUrl().create(ApiInterface::class.java)
+//
+//        connect.deleteKeranjang(id_user, id_barang).enqueue(object : Callback<DeleteKeranjangResponse> {
+//            override fun onFailure(call: Call<DeleteKeranjangResponse>, t: Throwable) {
+//
+//            }
+//
+//            override fun onResponse(call: Call<DeleteKeranjangResponse>, response: Response<DeleteKeranjangResponse>) {
+//                val push : String? = response.body()?.messaage
+//
+//                Log.e("tag", "RESPONE CART ${push}")
+//            }
+//
+//        })
+//    }
+
+    private fun deleteCart(id_user : String, id_barang: String) {
+        val connect : ApiInterface = apiRepository.getUrl().create(ApiInterface::class.java)
+
+        connect.deleteKeranjang(id_user, id_barang).enqueue(object : Callback<DeleteKeranjangResponse> {
+            override fun onFailure(call: Call<DeleteKeranjangResponse>, t: Throwable) {
+                Log.e("gagal", t.message)
+            }
+
+            override fun onResponse(call: Call<DeleteKeranjangResponse>, response: Response<DeleteKeranjangResponse>) {
+                val push : String? = response.body()?.messaage
+                notifyDataSetChanged()
+                Log.e("size item", items.size.toString())
+//                  og.e("DELETE", "RESPONE CART $push")
+            }
+
+        })
     }
+
+}

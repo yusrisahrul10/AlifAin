@@ -6,7 +6,7 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".EditProfileActivity"
+            tools:context=".editprofile.EditProfileActivity"
     >
 
         <LinearLayout
@@ -51,7 +51,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
-                            android:hint="Full name"
+                            android:hint="Username"
+                            android:id="@+id/edtUsername"
                             android:textColor="@android:color/black"
                             android:textSize="14sp" />
 
@@ -59,14 +60,16 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
-                            android:hint="Address"
+                            android:hint="Email"
+                            android:id="@+id/edtEmail"
                             android:textSize="14sp" />
 
                     <EditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
-                            android:hint="City"
+                            android:hint="Address"
+                            android:id="@+id/edtAlamat"
                             android:textSize="14sp" />
 
                     <EditText
@@ -74,14 +77,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:hint="Phone Number"
+                            android:id="@+id/edtNoHp"
                             android:textSize="14sp" />
 
-                    <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="20dp"
-                            android:hint="Zip Code"
-                            android:textSize="14sp" />
 
                 </LinearLayout>
 
@@ -89,7 +87,7 @@
             </android.support.v7.widget.CardView>
 
             <Button
-                    android:id="@+id/button"
+                    android:id="@+id/btnSaveProfile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"

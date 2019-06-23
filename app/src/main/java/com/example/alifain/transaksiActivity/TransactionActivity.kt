@@ -13,6 +13,7 @@ import com.example.alifain.MainActivity
 import com.example.alifain.R
 import com.example.alifain.model.transaksi.DataTransaksi
 import com.example.alifain.rest.ApiRepository
+import com.example.alifain.transaksilist.TransaksiListActivity
 
 class TransactionActivity : AppCompatActivity(), TransaksiView {
 
@@ -36,6 +37,7 @@ class TransactionActivity : AppCompatActivity(), TransaksiView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transaction)
         id_transaksi = intent.getIntExtra("id_transaksi", 0)
+
         txtHarga = findViewById(R.id.tv_total_barang)
         txtOngkir = findViewById(R.id.tv_total_ongkir)
         txtTotalHarga = findViewById(R.id.tv_total_bayar)
@@ -53,14 +55,13 @@ class TransactionActivity : AppCompatActivity(), TransaksiView {
         Log.e("id_transaksi ", id_transaksi.toString())
 
         btnKlik()
-//        Log.e("Total Harga  ", total_harga.toString())
-
 
     }
 
 
     override fun moveIntent() {
         val intent = Intent(this, MainActivity::class.java)
+//        intent.putExtra("submit_true", "true")
         startActivity(intent)
     }
 
@@ -74,7 +75,8 @@ class TransactionActivity : AppCompatActivity(), TransaksiView {
                     edtBank.text.toString(),
                     edtTransfer.text.toString(),
                     edtTglTf.text.toString(),
-                    id_transaksi.toString()
+                    id_transaksi.toString(),
+                    "1"
                 )
             }
         }

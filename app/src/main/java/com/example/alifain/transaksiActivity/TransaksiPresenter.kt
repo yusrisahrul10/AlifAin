@@ -35,10 +35,11 @@ class TransaksiPresenter(private val view: TransaksiView,private val apiReposito
         })
     }
 
-    fun postTransaksi(atas_nama : String,nama_bank : String,nominal : String,tgl_tf : String,id_transaksi : String){
+    fun postTransaksi(atas_nama : String,nama_bank : String,nominal : String,tgl_tf : String,id_transaksi : String,
+                      konfirmasi : String){
         view.showLoading()
         val connect : ApiInterface = apiRepository.getUrl().create(ApiInterface::class.java)
-        connect.konfirmasiAction(atas_nama,nama_bank,nominal,tgl_tf,id_transaksi).enqueue(object : Callback<KonfirmasiResponses>{
+        connect.konfirmasiAction(atas_nama,nama_bank,nominal,tgl_tf,id_transaksi, konfirmasi).enqueue(object : Callback<KonfirmasiResponses>{
             override fun onFailure(call: Call<KonfirmasiResponses>, t: Throwable) {
 
             }

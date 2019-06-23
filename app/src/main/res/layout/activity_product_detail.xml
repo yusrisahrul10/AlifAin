@@ -74,172 +74,6 @@
 
             </LinearLayout>
 
-
-            <!--<LinearLayout-->
-                    <!--android:id="@+id/ll_colour"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_below="@+id/ll_detail_product"-->
-                    <!--android:background="#fff"-->
-                    <!--android:orientation="vertical"-->
-            <!--&gt;-->
-
-
-                <!--<TextView-->
-                        <!--android:id="@+id/colortext"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_gravity="center"-->
-                        <!--android:layout_marginLeft="16dp"-->
-                        <!--android:fontFamily="@font/berlinsans"-->
-                        <!--android:layout_marginTop="16dp"-->
-                        <!--android:text="Colour"-->
-                        <!--android:textColor="#404547" />-->
-
-
-                <!--<LinearLayout-->
-                        <!--android:id="@+id/colorcircle"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="25dp"-->
-                        <!--android:orientation="horizontal">-->
-
-
-                    <!--&lt;!&ndash;******YELLOW COLOUR**********&ndash;&gt;-->
-                    <!--<FrameLayout-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:layout_gravity="center"-->
-                            <!--android:layout_margin="10dp"-->
-                            <!--android:layout_weight="1">-->
-
-
-                        <!--<ImageView-->
-                                <!--android:id="@+id/yellow1"-->
-                                <!--android:layout_width="40dp"-->
-                                <!--android:layout_height="40dp"-->
-                                <!--android:layout_gravity="center"-->
-                                <!--android:background="@drawable/white"-->
-
-                        <!--/>-->
-                    <!--</FrameLayout>-->
-
-
-                    <!--&lt;!&ndash;******BLUE COLOUR**********&ndash;&gt;-->
-                    <!--<FrameLayout-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:layout_gravity="center"-->
-                            <!--android:layout_margin="10dp"-->
-                            <!--android:layout_weight="1">-->
-
-
-                        <!--<ImageView-->
-                                <!--android:id="@+id/blue1"-->
-                                <!--android:layout_width="40dp"-->
-                                <!--android:layout_height="40dp"-->
-                                <!--android:layout_gravity="center"-->
-                                <!--android:background="@drawable/gray"-->
-
-                        <!--/>-->
-
-                    <!--</FrameLayout>-->
-
-                    <!--&lt;!&ndash;******RED COLOUR**********&ndash;&gt;-->
-                    <!--<FrameLayout-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:layout_gravity="center"-->
-                            <!--android:layout_margin="10dp"-->
-                            <!--android:layout_weight="1">-->
-
-
-                        <!--<ImageView-->
-                                <!--android:id="@+id/red1"-->
-                                <!--android:layout_width="40dp"-->
-                                <!--android:layout_height="40dp"-->
-                                <!--android:layout_gravity="center"-->
-                                <!--android:background="@drawable/black"-->
-
-                        <!--/>-->
-
-                    <!--</FrameLayout>-->
-
-                <!--</LinearLayout>-->
-            <!--</LinearLayout>-->
-
-
-            <!--<LinearLayout-->
-                    <!--android:id="@+id/ll_size"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_below="@+id/ll_colour"-->
-                    <!--android:background="#fff"-->
-                    <!--android:orientation="vertical"-->
-            <!--&gt;-->
-
-
-                <!--<TextView-->
-                        <!--android:id="@+id/sizetext"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_gravity="center"-->
-                        <!--android:layout_marginLeft="16dp"-->
-                        <!--android:layout_marginTop="16dp"-->
-                        <!--android:text="Size"-->
-                        <!--android:textColor="#404547" />-->
-
-
-                <!--<LinearLayout-->
-                        <!--android:id="@+id/sizecircle"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="25dp"-->
-                        <!--android:orientation="horizontal">-->
-
-                    <!--<TextView-->
-                            <!--android:layout_width="34dp"-->
-                            <!--android:layout_height="34dp"-->
-                            <!--android:text="S"-->
-                            <!--android:background="@drawable/sizeround1"-->
-                            <!--android:layout_margin="5dp"-->
-                            <!--android:fontFamily="@font/berlinsans"-->
-                            <!--android:layout_gravity="center"-->
-                            <!--android:gravity="center"-->
-
-                    <!--/>-->
-                    <!--<TextView-->
-                            <!--android:layout_width="34dp"-->
-                            <!--android:layout_height="34dp"-->
-                            <!--android:text="M"-->
-                            <!--android:background="@drawable/sizeround1"-->
-                            <!--android:layout_margin="5dp"-->
-                            <!--android:layout_gravity="center"-->
-                            <!--android:gravity="center"-->
-
-                    <!--/>-->
-                    <!--<TextView-->
-                            <!--android:layout_width="34dp"-->
-                            <!--android:layout_height="34dp"-->
-                            <!--android:text="L"-->
-                            <!--android:background="@drawable/sizeround1"-->
-                            <!--android:layout_margin="5dp"-->
-                            <!--android:layout_gravity="center"-->
-                            <!--android:gravity="center"-->
-                    <!--/>-->
-                    <!--<TextView-->
-                            <!--android:layout_width="34dp"-->
-                            <!--android:layout_height="34dp"-->
-                            <!--android:text="XL"-->
-                            <!--android:background="@drawable/sizeround1"-->
-                            <!--android:layout_margin="5dp"-->
-                            <!--android:layout_gravity="center"-->
-                            <!--android:gravity="center"-->
-                    <!--/>-->
-
-                <!--</LinearLayout>-->
-            <!--</LinearLayout>-->
-
             <LinearLayout
                     android:id="@+id/ll_qty"
                     android:layout_width="match_parent"
@@ -255,7 +89,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:text="Quantity"
                         android:textColor="#404547" />
@@ -302,12 +136,43 @@
             </LinearLayout>
 
             <LinearLayout
+                    android:id="@+id/ll_deskripsi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll_qty"
+                    android:background="#fff"
+                    android:orientation="vertical"
+            >
+
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Deskripsi Pesanan"
+                        android:textColor="#404547" />
+
+
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/edtDeskripsiPesan"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="16dp"
+                        android:hint="Ukuran (S, M, L, XL,), warna"
+                        android:paddingTop="8dp"
+                />
+            </LinearLayout>
+
+            <LinearLayout
                     android:id="@+id/ll_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:padding="16dp"
-                    android:layout_below="@+id/ll_qty"
+                    android:layout_below="@+id/ll_deskripsi"
                     android:background="#fff"
                     android:gravity="center"
 

@@ -3,9 +3,8 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
-
-
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
 
         <LinearLayout
@@ -20,7 +19,6 @@
                     android:orientation="vertical">
 
                 <ImageView
-
                         android:id="@+id/imgCart"
                         android:layout_width="75dp"
                         android:layout_height="75dp"

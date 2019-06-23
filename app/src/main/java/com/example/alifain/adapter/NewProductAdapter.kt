@@ -32,7 +32,7 @@ class NewProductAdapter(private val context: Context?, private val items: List<D
 
         fun bindItem(items : Data, listener: (Data) -> Unit) {
             name.text = items.nama_barang
-            items.nama_gambar?.let { Picasso.get().load("http://alifain.dscunikom.com/uploads/barang/"+it).into(image) }
+            items.nama_gambar.let { Picasso.get().load("http://alifain.dscunikom.com/uploads/barang/"+it).into(image) }
             price.text = "Rp. "+items.harga
 
             itemView.setOnClickListener {

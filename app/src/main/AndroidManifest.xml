@@ -12,24 +12,28 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".EditProfileActivity">
+        <activity android:name=".detailtransaksi.DetailTransaksiActivity">
         </activity>
-        <activity android:name=".transaksiActivity.TransactionActivity"
-                  android:screenOrientation="portrait">
-            >
+        <activity android:name=".transaksilist.TransaksiListActivity">
         </activity>
-        <activity android:name=".SplashScreenActivity"
-                  android:screenOrientation="portrait">
-            >
+        <activity android:name=".editprofile.EditProfileActivity">
+        </activity>
+        <activity
+                android:name=".transaksiActivity.TransactionActivity"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name=".SplashScreenActivity"
+                android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".checkoutActivity.CheckoutActivity"
-                  android:screenOrientation="portrait">
-            >
+        <activity
+                android:name=".checkoutActivity.CheckoutActivity"
+                android:screenOrientation="portrait">
         </activity>
         <activity
                 android:name=".detailBarang.ProductDetailActivity"

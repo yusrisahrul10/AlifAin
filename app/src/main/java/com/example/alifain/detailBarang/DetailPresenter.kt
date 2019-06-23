@@ -40,10 +40,10 @@ class DetailPresenter(private val view: DetailView, private val apiRepository: A
         })
     }
 
-    fun pushCart(id_user : String,id_barang: String , qty : Int){
+    fun pushCart(id_user : String,id_barang: String , qty : Int, deskripsi : String){
         view.showLoading()
         val connect : ApiInterface = apiRepository.getUrl().create(ApiInterface::class.java)
-        connect.keranjangAction(id_user,id_barang,qty).enqueue(object : Callback<KeranjangResponses>{
+        connect.keranjangAction(id_user,id_barang,qty, deskripsi).enqueue(object : Callback<KeranjangResponses>{
             override fun onFailure(call: Call<KeranjangResponses>, t: Throwable) {
 
             }

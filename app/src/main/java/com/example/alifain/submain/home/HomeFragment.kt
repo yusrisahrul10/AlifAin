@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.SearchView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,9 +36,12 @@ class HomeFragment : Fragment(), BannerListener, HomeView {
     }
 
     private var items: MutableList<Data> = mutableListOf()
+    private var filteredItems: MutableList<Data> = mutableListOf()
     private lateinit var list: RecyclerView
     private lateinit var presenter: HomePresenter
     private var groupAdapter = GroupAdapter<ViewHolder>()
+
+    private lateinit var search : SearchView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,10 +54,41 @@ class HomeFragment : Fragment(), BannerListener, HomeView {
         val apiRepository = ApiRepository()
         presenter = HomePresenter(this,apiRepository)
         presenter.getBarangList()
-//        initData()
-//        productData()
+
+        search = view.findViewById(R.id.search_product)
+        search.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(s: String?): Boolean {
+                searchProduk(s)
+                return true
+            }
+
+            override fun onQueryTextChange(s: String?): Boolean {
+                searchProduk(s)
+                return true
+            }
+
+        })
 
         return view
+    }
+
+    fun searchProduk(keyword : String?) {
+         val filteredList : MutableList<Data> = mutableListOf()
+         for (s in filteredItems) {
+            if (s.nama_barang.toLowerCase().contains(keyword!!.toLowerCase())) {
+                filteredList.add(s)
+            }
+         }
+         if (filteredList.size == 0) {
+
+         } else {
+            list.visibility = View.VISIBLE
+            val adapter = NewProductAdapter(context, filteredList, { itemMatch: Data -> itemClick(itemMatch) })
+            list.adapter = adapter
+            rvMain.visibility = View.GONE
+
+         }
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -89,6 +124,7 @@ class HomeFragment : Fragment(), BannerListener, HomeView {
 
     override fun showBarang(data: List<Data>) {
         items.addAll(data)
+        filteredItems.addAll(data)
 //        list.adapter = NewProductAdapter(context,{ itemBarang : DataTransaksi -> itemClick(itemBarang)})
         list.adapter = NewProductAdapter(context, items, { itemMatch: Data -> itemClick(itemMatch) })
         list.layoutManager = GridLayoutManager(context, 2)
@@ -110,28 +146,6 @@ class HomeFragment : Fragment(), BannerListener, HomeView {
         intent.putExtra("id_barang",item.id_barang)
         startActivity(intent)
     }
-    private fun productData() {
-    }
-
-//    private fun initData() {
-//        val name = resources.getStringArray(R.array.name_new_product)
-//        val image = resources.obtainTypedArray(R.array.image_new_product)
-//        val price = resources.getIntArray(R.array.price_new_product)
-//
-//        items.clear()
-//        for (i in name.indices) {
-//            items.add(
-//                ProductModel(
-//                    name[i],
-//                    image.getResourceId(i, 0),
-//                    price[i]
-//                )
-//            )
-//        }
-//
-//        //Recycle the typed array
-//        image.recycle()
-//    }
 
 
 }

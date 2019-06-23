@@ -3,6 +3,7 @@ package com.example.alifain.checkoutActivity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import com.example.alifain.R
@@ -82,6 +83,8 @@ class CheckoutActivity : AppCompatActivity(), CheckoutView {
         startActivity(intent)
     }
     override fun showListProvinsi(data: RajaongkirProvinsi) {
+
+
         spinnerProvinsi.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, data.results)
         spinnerProvinsi.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -91,6 +94,7 @@ class CheckoutActivity : AppCompatActivity(), CheckoutView {
                 result = spinnerProvinsi.selectedItem as Result
 //                resultKota?.province_id = result.province_id
 //                Log.e("id result kota", resultKota!!.province_id)
+                Log.e("DATA KE 0", spinnerProvinsi.getItemAtPosition(0).toString())
                 presenter.getListKota(result.province_id)
                 totalPembayaran = 0
             }
@@ -112,18 +116,20 @@ class CheckoutActivity : AppCompatActivity(), CheckoutView {
                 kotaTujuan = resultKota.city_id
                 presenter.getCost("23", kotaTujuan, totalgram.toString(), "jne")
                 totalPembayaran()
-
             }
 
         }
     }
 
     override fun showCost(data: Int) {
-//        totalPembayaran = totalOngkir + totalHarga
-
         totalOngkir = data
         totalPembayaran = totalOngkir + totalHarga
+        Log.e("TOTAL PEMBAYARAN", totalPembayaran.toString())
+        Log.e("TOTAL ONGKIR", totalOngkir.toString())
+        Log.e("TOTAL HARGA", totalHarga.toString())
         txtOngkir.text = "Rp. "+totalOngkir.toString()
+
+        totalPembayaran()
     }
     override fun showLoading() {
 
@@ -133,6 +139,7 @@ class CheckoutActivity : AppCompatActivity(), CheckoutView {
 
     }
     private fun totalPembayaran(){
+
         totalHarga = intent.getIntExtra("total_harga",0)
         txtSubTotal.text = "Rp. "+totalHarga.toString()
         txtTotalBayar.text = "Rp. "+totalPembayaran.toString()

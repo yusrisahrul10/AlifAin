@@ -43,8 +43,6 @@ class CartAdapter(private val context: Context?, private var items: MutableList<
             val id_barang = items.get(position).id_barang
             val id_user = items.get(position).id_user
 
-
-
             Log.e("get id_barang", id_barang)
             Log.e("get id_user", id_user)
 

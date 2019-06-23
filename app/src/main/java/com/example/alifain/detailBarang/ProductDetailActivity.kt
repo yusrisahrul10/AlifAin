@@ -5,9 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import com.example.alifain.MainActivity
 import com.example.alifain.R
 import com.example.alifain.model.barang.Data
@@ -32,6 +30,8 @@ class ProductDetailActivity : AppCompatActivity() , DetailView {
     private lateinit var btnPlus : Button
     private lateinit var tvQuantity : TextView
 
+    private lateinit var edtDeskripsi : EditText
+
     var qty = 1
     var ttlPrice: Int? = 0
 
@@ -48,6 +48,8 @@ class ProductDetailActivity : AppCompatActivity() , DetailView {
         btnPlus = findViewById(R.id.btnPlus)
         tvQuantity = findViewById(R.id.tvQuantity)
 
+        edtDeskripsi = findViewById(R.id.edtDeskripsiPesan)
+
         preference = MyPreference(this)
 
         val apiRepository = ApiRepository()
@@ -55,18 +57,21 @@ class ProductDetailActivity : AppCompatActivity() , DetailView {
         presenter.DetailPresenter(this)
         id_barang = intent.getStringExtra("id_barang")
         presenter.getDetailBarang(id_barang)
-        btnCart.setOnClickListener {
-            presenter.pushCart(preference.getIdUser(),id_barang,qty)
-        }
+
+        btnAddCart()
 
         tvQuantity.text = qty.toString()
+    }
 
-//        if (qty == 0) {
-//            btnMinus.isClickable = false
-//            txthargaBarang.text = "Rp. "+ 0
-//        } else {
-//            btnMinus.isClickable = true
-//        }
+    fun btnAddCart() {
+        btnCart.setOnClickListener {
+            if (edtDeskripsi.text.isEmpty()) {
+                Toast.makeText(this, "Masukkan deskripsi barang yang ingin dipesan", Toast.LENGTH_SHORT).show()
+            } else {
+                presenter.pushCart(preference.getIdUser(),id_barang,qty, edtDeskripsi.text.toString())
+            }
+
+        }
     }
 
     override fun moveToHomeFragment() {

@@ -61,6 +61,7 @@ class TransactionActivity : AppCompatActivity(), TransaksiView {
 
     override fun moveIntent() {
         val intent = Intent(this, MainActivity::class.java)
+        finishAffinity()
 //        intent.putExtra("submit_true", "true")
         startActivity(intent)
     }
@@ -85,11 +86,16 @@ class TransactionActivity : AppCompatActivity(), TransaksiView {
 
     override fun showDataTransaksi(data: DataTransaksi) {
         total_harga = data.ongkir + data.total_harga
-        txtHarga.text = data.total_harga.toString()
-        txtOngkir.text = data.ongkir.toString()
-        txtTotalHarga.text = total_harga.toString()
+        txtHarga.text = "Rp. " + data.total_harga.toString()
+        txtOngkir.text = "Rp. " + data.ongkir.toString()
+        txtTotalHarga.text = "Rp. " + total_harga.toString()
         txtTanggal.text = data.tgl_transaksi
         txtAlamat.text = data.alamat_penerima
+    }
+
+    override fun responseFailed(message: String) {
+        val message = "Tidak dapat memproses permintaan Anda karena kesalahan koneksi. Silakan coba lagi"
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     override fun showLoading() {

@@ -17,7 +17,7 @@ class CartPresenter(private val view: CartView, private val apiRepository: ApiRe
         val connect: ApiInterface = apiRepository.getUrl().create(ApiInterface::class.java)
         connect.getListCart(id_user).enqueue(object : Callback<CartResponses> {
             override fun onFailure(call: Call<CartResponses>, t: Throwable) {
-
+                view.showCartFailed(t.localizedMessage)
             }
 
             override fun onResponse(call: Call<CartResponses>, response: Response<CartResponses>) {
@@ -27,30 +27,10 @@ class CartPresenter(private val view: CartView, private val apiRepository: ApiRe
                 view.showListCart(get!!)
                 view.showTotalHarga(harga!!)
                 view.showTotalGram(gram!!)
+                view.hideLoading()
             }
 
         })
     }
-//
-//    private fun deleteCart(id_user : String, id_barang: String) {
-//        val connect : ApiInterface = apiRepository.getUrl().create(ApiInterface::class.java)
-//
-//        connect.deleteKeranjang(id_user, id_barang).enqueue(object : Callback<DeleteKeranjangResponse> {
-//            override fun onFailure(call: Call<DeleteKeranjangResponse>, t: Throwable) {
-//                Log.e("gagal", t.message)
-//            }
-//
-//            override fun onResponse(call: Call<DeleteKeranjangResponse>, response: Response<DeleteKeranjangResponse>) {
-//                val push : String? = response.body()?.messaage
-//                val harga : Int? = response.body()?.total_harga
-//                tvTotalHarga.text = "Rp. " + harga
-//
-////                notifyDataSetChanged()
-////                Log.e("size item", items.size.toString())
-////                  og.e("DELETE", "RESPONE CART $push")
-//            }
-//
-//        })
-//    }
 
 }

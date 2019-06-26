@@ -10,4 +10,6 @@ interface CartView {
     fun showTotalGram(gram : Int)
     fun showLoading()
     fun hideLoading()
+    fun showCartFailed(message : String)
+
 }

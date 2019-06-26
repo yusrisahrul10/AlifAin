@@ -17,6 +17,10 @@ import com.example.alifain.loginActivity.LoginActivity
 import com.example.alifain.rest.ApiRepository
 
 class RegisterActivity : AppCompatActivity() , RegisterView {
+    override fun registerFailed(message: String) {
+        val message = "Tidak dapat memproses permintaan Anda karena kesalahan koneksi. Silakan coba lagi"
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
 
 
     private lateinit var tvLogin: TextView
@@ -45,6 +49,7 @@ class RegisterActivity : AppCompatActivity() , RegisterView {
             override fun onClick(widget: View) {
                 val intent = object : Intent(this@RegisterActivity, LoginActivity::class.java){
                 }
+                finishAffinity()
                 startActivity(intent)
             }
         }
@@ -65,6 +70,7 @@ class RegisterActivity : AppCompatActivity() , RegisterView {
 
     override fun moveIntentLogin() {
         val intent = Intent(this, LoginActivity::class.java)
+        finishAffinity()
         startActivity(intent)
     }
     fun RegisterClick(){

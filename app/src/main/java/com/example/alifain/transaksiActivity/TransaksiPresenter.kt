@@ -24,7 +24,7 @@ class TransaksiPresenter(private val view: TransaksiView,private val apiReposito
         val connect : ApiInterface = apiRepository.getUrl().create(ApiInterface::class.java)
         connect.getKonfirmasiData(id_transaksi).enqueue(object : Callback<TransaksiResponses>{
             override fun onFailure(call: Call<TransaksiResponses>, t: Throwable) {
-
+                view.responseFailed(t.localizedMessage)
             }
 
             override fun onResponse(call: Call<TransaksiResponses>, response: Response<TransaksiResponses>) {
@@ -41,7 +41,7 @@ class TransaksiPresenter(private val view: TransaksiView,private val apiReposito
         val connect : ApiInterface = apiRepository.getUrl().create(ApiInterface::class.java)
         connect.konfirmasiAction(atas_nama,nama_bank,nominal,tgl_tf,id_transaksi, konfirmasi).enqueue(object : Callback<KonfirmasiResponses>{
             override fun onFailure(call: Call<KonfirmasiResponses>, t: Throwable) {
-
+                view.responseFailed(t.localizedMessage)
             }
 
             override fun onResponse(call: Call<KonfirmasiResponses>, response: Response<KonfirmasiResponses>) {

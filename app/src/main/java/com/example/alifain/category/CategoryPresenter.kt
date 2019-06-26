@@ -15,12 +15,13 @@ class CategoryPresenter(private val view: CategoryView , private val apiReposito
         val connect : ApiInterface = apiRepository.getUrl().create(ApiInterface::class.java)
         connect.getListFromCategory(category).enqueue(object : Callback<BarangResponse>{
             override fun onFailure(call: Call<BarangResponse>, t: Throwable) {
-
+                view.showBarangFailed(t.localizedMessage)
             }
 
             override fun onResponse(call: Call<BarangResponse>, response: Response<BarangResponse>) {
                val get : List<Data>? = response.body()?.data
                 view.getListBarang(get!!)
+                view.hideLoading()
             }
 
         })

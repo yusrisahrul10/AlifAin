@@ -27,7 +27,7 @@ class DetailTransaksiPresenter(private val view: DetailTransaksiView, private va
         val connect: ApiInterface = apiRepository.getUrl().create(ApiInterface::class.java)
         connect.getDetailTransaksi(id_user, id_transaksi).enqueue(object : Callback<DetailTransaksiResponse>{
             override fun onFailure(call: Call<DetailTransaksiResponse>, t: Throwable) {
-
+                view.showDetailTransaksiFailed(t.localizedMessage)
             }
 
             override fun onResponse(call: Call<DetailTransaksiResponse>, response: Response<DetailTransaksiResponse>) {
@@ -36,17 +36,18 @@ class DetailTransaksiPresenter(private val view: DetailTransaksiView, private va
 
                 view.getDetailBarang(get!!)
                 view.getTotalPembayaran(total!!)
+
+                view.hideLoading()
             }
         })
     }
 
     fun postTransaksi(atas_nama : String,nama_bank : String,nominal : String,tgl_tf : String,id_transaksi : String,
                       konfirmasi : String){
-        view.showLoading()
         val connect : ApiInterface = apiRepository.getUrl().create(ApiInterface::class.java)
         connect.konfirmasiAction(atas_nama,nama_bank,nominal,tgl_tf,id_transaksi, konfirmasi).enqueue(object : Callback<KonfirmasiResponses>{
             override fun onFailure(call: Call<KonfirmasiResponses>, t: Throwable) {
-
+                view.responseFailed(t.localizedMessage)
             }
 
             override fun onResponse(call: Call<KonfirmasiResponses>, response: Response<KonfirmasiResponses>) {
@@ -67,7 +68,7 @@ class DetailTransaksiPresenter(private val view: DetailTransaksiView, private va
         val connect : ApiInterface = apiRepository.getUrl().create(ApiInterface::class.java)
         connect.updateKonfirmasi(id_transaksi, konfirmasi).enqueue(object : Callback<KonfirmasiResponse>{
             override fun onFailure(call: Call<KonfirmasiResponse>, t: Throwable) {
-
+                view.responseFailed(t.localizedMessage)
             }
 
             override fun onResponse(call: Call<KonfirmasiResponse>, response: Response<KonfirmasiResponse>) {

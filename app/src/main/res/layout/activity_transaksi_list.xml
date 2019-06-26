@@ -14,4 +14,23 @@
             android:layout_marginTop="16dp"
             tools:listitem="@layout/item_list_transaksi"/>
 
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_kosong_list_transaksi"
+            android:text="Tidak Ada Data"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:drawableTop="@drawable/empty"
+    />
+
+    <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/progress_bar_list_transaksi"
+            android:layout_gravity="center"
+    />
+
 </RelativeLayout>

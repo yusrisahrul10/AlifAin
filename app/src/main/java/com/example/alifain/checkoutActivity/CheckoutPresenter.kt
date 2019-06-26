@@ -32,7 +32,7 @@ class CheckoutPresenter(private val view: CheckoutView, private val apiRepositor
         val connect: ApiInterface = apiRepository.getRajaOngkir().create(ApiInterface::class.java)
         connect.getProvinsi().enqueue(object : Callback<RajaOngkirResponses> {
             override fun onFailure(call: Call<RajaOngkirResponses>, t: Throwable) {
-
+                view.showListFailed(t.localizedMessage)
             }
 
             override fun onResponse(call: Call<RajaOngkirResponses>, response: Response<RajaOngkirResponses>) {
@@ -49,6 +49,7 @@ class CheckoutPresenter(private val view: CheckoutView, private val apiRepositor
         val connect: ApiInterface = apiRepository.getRajaOngkir().create(ApiInterface::class.java)
         connect.getKota(province).enqueue(object : Callback<KotaResponses> {
             override fun onFailure(call: Call<KotaResponses>, t: Throwable) {
+                view.showListFailed(t.localizedMessage)
             }
 
             override fun onResponse(call: Call<KotaResponses>, response: Response<KotaResponses>) {
@@ -65,7 +66,7 @@ class CheckoutPresenter(private val view: CheckoutView, private val apiRepositor
         val connect: ApiInterface = apiRepository.getUrl().create(ApiInterface::class.java)
         connect.cekoutAction(id_user, ongkir, totalharga, alamat).enqueue(object : Callback<CekoutResponses> {
             override fun onFailure(call: Call<CekoutResponses>, t: Throwable) {
-
+                view.showListFailed(t.localizedMessage)
             }
 
             override fun onResponse(call: Call<CekoutResponses>, response: Response<CekoutResponses>) {
@@ -90,7 +91,7 @@ class CheckoutPresenter(private val view: CheckoutView, private val apiRepositor
         val connect: ApiInterface = apiRepository.getRajaOngkir().create(ApiInterface::class.java)
         connect.getCost(kota_asal, kota_tujuan, berat, kurir).enqueue(object : Callback<OngkirResponses> {
             override fun onFailure(call: Call<OngkirResponses>, t: Throwable) {
-
+                view.showListFailed(t.localizedMessage)
             }
 
             override fun onResponse(call: Call<OngkirResponses>, response: Response<OngkirResponses>) {

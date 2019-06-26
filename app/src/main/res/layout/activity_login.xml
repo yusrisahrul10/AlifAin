@@ -13,6 +13,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:gravity="center"
+            android:id="@+id/ll_alif_ain"
             android:orientation="vertical">
 
         <TextView
@@ -32,8 +33,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginTop="16dp"
             android:layout_centerInParent="true"
-            >
+            android:layout_below="@id/ll_alif_ain">
 
         <EditText
                 android:layout_gravity="center"
@@ -41,15 +43,16 @@
                 android:layout_marginRight="41dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email or Username"
+                android:hint="@string/email_or_username"
                 android:fontFamily="@font/trebuc"
                 android:inputType="text"
-                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:background="@drawable/rect"
                 android:paddingTop="14dp"
                 android:paddingBottom="14dp"
                 android:id="@+id/edtTextMail"
-        />
+                />
 
         <EditText
                 android:layout_gravity="center"
@@ -60,9 +63,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/trebuc"
-                android:hint="Password"
-                android:paddingLeft="20dp"
-                android:paddingRight="13dp"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:paddingStart="20dp"
+                android:paddingEnd="13dp"
                 android:paddingTop="13dp"
                 android:paddingBottom="14dp"
                 android:background="@drawable/rect"
@@ -75,7 +79,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginLeft="41dp"
                 android:layout_marginRight="41dp"
-                android:text="Log In"
+                android:text="@string/log_in"
                 android:fontFamily="@font/trebuc"
                 android:background="@drawable/button_bg"
                 android:textAllCaps="false"
@@ -87,13 +91,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:orientation="horizontal"
                 android:layout_marginTop="16dp"
                 android:paddingLeft="38dp"
                 android:paddingRight="38dp"
                 android:paddingTop="10dp"
                 android:fontFamily="@font/berlinsans"
                 android:paddingBottom="10dp"
-        >
+                tools:ignore="UseCompoundDrawables">
             <ImageView
                     android:layout_width="12dp"
                     android:layout_height="16dp"
@@ -103,10 +108,10 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
                     android:layout_marginTop="1dp"
                     android:textSize="12sp"
-                    android:text="Log In with Google"
+                    android:text="@string/log_in_with_google"
                     android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold"/>
 
@@ -131,8 +136,9 @@
                     android:layout_marginLeft="9dp"
                     android:fontFamily="@font/berlinsans"
                     android:layout_marginRight="9dp"
-                    android:text="OR"
-                    android:textSize="10sp" />
+                    android:text="@string/or"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp"/>
 
             <View
                     android:layout_width="80dp"
@@ -150,7 +156,7 @@
                 android:layout_marginTop="16dp"
                 android:id="@+id/tv_signup"
                 android:fontFamily="@font/berlinsans"
-                android:text="Don't have an account? Sign Up."
+                android:text="@string/don_t_have_an_account_sign_up"
                 android:textColor="@android:color/black"
         />
 

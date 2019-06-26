@@ -7,4 +7,5 @@ interface TransaksiView {
     fun showLoading()
     fun hideLoading()
     fun moveIntent()
+    fun responseFailed(message : String)
 }

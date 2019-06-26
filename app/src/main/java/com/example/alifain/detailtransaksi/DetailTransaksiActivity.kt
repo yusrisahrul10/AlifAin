@@ -19,6 +19,7 @@ import com.example.alifain.transaksilist.TransaksiListActivity
 
 class DetailTransaksiActivity : AppCompatActivity(), DetailTransaksiView {
 
+
     private lateinit var tvHargaBarang : TextView
     private lateinit var tvStatusPesanan : TextView
     private lateinit var tvNoResi : TextView
@@ -46,6 +47,14 @@ class DetailTransaksiActivity : AppCompatActivity(), DetailTransaksiView {
     private lateinit var cvBayar : CardView
     private lateinit var llBukti : LinearLayout
 
+    private lateinit var tvTotalHarga : TextView
+    private lateinit var tvStatus : TextView
+    private lateinit var llDetailPengiriman : LinearLayout
+    private lateinit var llInformasi : LinearLayout
+
+    private lateinit var progressBar : ProgressBar
+    private lateinit var tvKosong : TextView
+
     var status = ""
 
 
@@ -68,6 +77,13 @@ class DetailTransaksiActivity : AppCompatActivity(), DetailTransaksiView {
 
         btnSubmitPengiriman = findViewById(R.id.btnSubmitPengiriman)
         btnDiterima = findViewById(R.id.btnDiterima)
+
+        tvTotalHarga = findViewById(R.id.tvTotalHarga)
+        tvStatus = findViewById(R.id.tvStatus)
+        llDetailPengiriman = findViewById(R.id.ll_detail_pengiriman)
+        llInformasi = findViewById(R.id.ll_informasi_pemmbayaran)
+        progressBar = findViewById(R.id.progress_bar_detail_transasksi)
+        tvKosong = findViewById(R.id.tv_kosong_detail_transasksi)
 
         cvBayar = findViewById(R.id.cv_bayar)
         llBukti = findViewById(R.id.ll_bukti_pengiriman)
@@ -92,9 +108,31 @@ class DetailTransaksiActivity : AppCompatActivity(), DetailTransaksiView {
     }
 
     override fun showLoading() {
+        progressBar.visibility = View.VISIBLE
+        tvKosong.visibility = View.GONE
+        list.visibility = View.GONE
+        tvTotalHarga.visibility = View.GONE
+        tvStatus.visibility = View.GONE
+        llDetailPengiriman.visibility = View.GONE
+        llInformasi.visibility = View.GONE
+        cvBayar.visibility = View.GONE
+        llBukti.visibility = View.GONE
+        btnSubmitPengiriman.visibility = View.GONE
+        btnDiterima.visibility = View.GONE
     }
 
     override fun hideLoading() {
+        progressBar.visibility = View.GONE
+        tvKosong.visibility = View.GONE
+        list.visibility = View.VISIBLE
+        tvTotalHarga.visibility = View.VISIBLE
+        tvStatus.visibility = View.VISIBLE
+        llDetailPengiriman.visibility = View.VISIBLE
+        llInformasi.visibility = View.VISIBLE
+//        cvBayar.visibility = View.VISIBLE
+//        llBukti.visibility = View.VISIBLE
+//        btnSubmitPengiriman.visibility = View.VISIBLE
+//        btnDiterima.visibility = View.VISIBLE
     }
 
     override fun getDetailBarang(data: List<Data>) {
@@ -149,22 +187,44 @@ class DetailTransaksiActivity : AppCompatActivity(), DetailTransaksiView {
         } else{
             tvNoResi.text = data.get(0).no_resi.toString()
         }
-        tvHargaBarang.text = data.get(0).total_harga
+        tvHargaBarang.text = "Rp. " +data.get(0).total_harga
         tvStatusPesanan.text = status
         tvAlamatPengiriman.text = data.get(0).alamat_penerima
-        tvTotalHargaBarang.text = data.get(0).total_harga
+        tvTotalHargaBarang.text = "Rp. " +data.get(0).total_harga
 
+    }
+
+    override fun showDetailTransaksiFailed(message: String) {
+        val message = "Tidak dapat memproses permintaan Anda karena kesalahan koneksi atau data kosong. Silakan coba lagi"
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+        progressBar.visibility = View.GONE
+        tvKosong.visibility = View.VISIBLE
+        list.visibility = View.GONE
+        tvTotalHarga.visibility = View.GONE
+        tvStatus.visibility = View.GONE
+        llDetailPengiriman.visibility = View.GONE
+        llInformasi.visibility = View.GONE
+        cvBayar.visibility = View.GONE
+        llBukti.visibility = View.GONE
+        btnSubmitPengiriman.visibility = View.GONE
+        btnDiterima.visibility = View.GONE
+    }
+
+    override fun responseFailed(message: String) {
+        val message = "Tidak dapat memproses permintaan Anda karena kesalahan koneksi. Silakan coba lagi"
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
 
     override fun getTotalPembayaran(total: Total) {
-        tvTotalOngkir.text = total.ongkir
-        tvTotalBayar.text = total.total_pembayaran
+        tvTotalOngkir.text = "Rp. " +total.ongkir
+        tvTotalBayar.text = "Rp. " +total.total_pembayaran
     }
 
     override fun moveIntent() {
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, TransaksiListActivity::class.java)
 //        intent.putExtra("submit_true", "true")
+        finishAffinity()
         startActivity(intent)
     }
 

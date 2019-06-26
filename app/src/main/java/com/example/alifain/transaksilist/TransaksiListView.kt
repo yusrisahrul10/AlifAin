@@ -6,5 +6,6 @@ interface TransaksiListView {
     fun showListTransaksi(data: List<Data>)
     fun showLoading()
     fun hideLoading()
+    fun showListTransaksiFailed(message : String)
     //fun moveIntent()
 }

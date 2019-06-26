@@ -23,12 +23,12 @@
                        android:src="@drawable/img_1"
                        android:id="@+id/image_new_product"
                        android:layout_centerHorizontal="true"
-            />
+                       android:contentDescription="@string/todo"/>
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Niqab Bandana Poni"
+                    android:text="@string/niqab"
                     android:layout_below="@id/image_new_product"
                     android:id="@+id/tv_name_new_product"
                     android:layout_centerInParent="true"
@@ -39,7 +39,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rp. 48000"
+                    android:text="@string/rp_48000"
                     android:layout_below="@id/tv_name_new_product"
                     android:id="@+id/tv_price_new_product"
                     android:layout_centerInParent="true"

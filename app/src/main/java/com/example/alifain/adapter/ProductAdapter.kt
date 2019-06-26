@@ -9,14 +9,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.alifain.R
 import com.example.alifain.model.ProductModel
-import com.example.alifain.model.barang.Data
 import com.squareup.picasso.Picasso
 
 class ProductAdapter(private val context: Context?, private val items: List<ProductModel>,
                         private val listener: (ProductModel) -> Unit)
     : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_new_product, parent, false))
+        ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_all_product, parent, false))
 
     override fun getItemCount(): Int = items.size
 

@@ -8,20 +8,18 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.alifain.R
-import com.example.alifain.model.ProductModel
 import com.example.alifain.model.barang.Data
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.item_new_product.view.*
 
-class NewProductAdapter(private val context: Context?, private val items: List<Data>,
+class AllProductAdapter(private val context: Context?, private val items: List<Data>,
                         private val listener: (Data) -> Unit)
-    : RecyclerView.Adapter<NewProductAdapter.ViewHolder>() {
+    : RecyclerView.Adapter<AllProductAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_new_product, parent, false))
+        ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_all_product, parent, false))
 
     override fun getItemCount(): Int = items.size
 
-    override fun onBindViewHolder(holder: NewProductAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AllProductAdapter.ViewHolder, position: Int) {
         holder.bindItem(items[position], listener)
     }
 

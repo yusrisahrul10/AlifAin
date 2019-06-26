@@ -6,9 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import com.example.alifain.R
 import com.example.alifain.model.cart.Data
 import com.example.alifain.model.deletekeranjang.DeleteKeranjangResponse
@@ -20,12 +18,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class CartAdapter(private val context: Context?, private var items: MutableList<Data> = mutableListOf(),
-                  private val listener: (Data) -> Unit, private var tvTotalHarga: TextView )
+                  private val listener: (Data) -> Unit, private var tvTotalHarga: TextView)
     : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
-
-//    private lateinit var presenter :DeleteCartPresenter
-
-    private lateinit var tvTtlHarga : TextView
 
     val apiRepository = ApiRepository()
 
@@ -49,6 +43,12 @@ class CartAdapter(private val context: Context?, private var items: MutableList<
             deleteCart(id_user, id_barang)
             items.removeAt(position)
         }
+//
+//        btnCart.setOnClickListener {
+////            if (items.size == 0) {
+////                Toast.makeText(context, "Keranjang Anda kosong. Silakan pilih barang yang ingin dibeli", Toast.LENGTH_SHORT).show()
+////            }
+//        }
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

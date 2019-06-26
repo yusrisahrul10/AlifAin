@@ -4,4 +4,6 @@ interface LoginView {
     fun moveIntent()
     fun showLoading()
     fun hideLoading()
+    fun failedLogin(message : String)
+
 }

@@ -16,12 +16,13 @@ class HomePresenter(private val view: HomeView, private val apiRepository: ApiRe
         val connect: ApiInterface = apiRepository.getUrl().create(ApiInterface::class.java)
         connect.getBarang().enqueue(object : Callback<BarangResponse> {
             override fun onFailure(call: Call<BarangResponse>, t: Throwable) {
-
+                view.showBarangFailed(t.localizedMessage)
             }
 
             override fun onResponse(call: Call<BarangResponse>, response: Response<BarangResponse>) {
                 val list : List<Data>? = response.body()?.data
                 view.showBarang(list!!)
+                view.hideLoading()
                 Log.e("tag", "responsennya ${list.get(0).nama_barang}")
 
             }

@@ -23,7 +23,7 @@ class RegisterPresenter(private val view : RegisterView , private val apiReposit
         val connect : ApiInterface = apiRepository.getUrl().create(ApiInterface::class.java)
         connect.registerAction(username,email,alamat,nohp,password).enqueue(object : Callback<LoginRespones>{
             override fun onFailure(call: Call<LoginRespones>, t: Throwable) {
-
+                view.registerFailed(t.localizedMessage)
             }
 
             override fun onResponse(call: Call<LoginRespones>, response: Response<LoginRespones>) {

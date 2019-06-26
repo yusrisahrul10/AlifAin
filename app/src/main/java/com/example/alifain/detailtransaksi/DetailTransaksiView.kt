@@ -9,4 +9,6 @@ interface DetailTransaksiView {
     fun getDetailBarang(data: List<Data>)
     fun getTotalPembayaran(total : Total)
     fun moveIntent()
+    fun showDetailTransaksiFailed(message : String)
+    fun responseFailed(message : String)
 }

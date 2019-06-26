@@ -19,8 +19,6 @@ import com.example.alifain.rest.ApiRepository
 
 class CheckoutActivity : AppCompatActivity(), CheckoutView {
 
-
-
     private lateinit var btnPesanan: Button
     private lateinit var presenter: CheckoutPresenter
     private lateinit var spinnerProvinsi: Spinner
@@ -80,6 +78,7 @@ class CheckoutActivity : AppCompatActivity(), CheckoutView {
         val intent = Intent(this, TransactionActivity::class.java)
         intent.putExtra("id_transaksi",id_transaksi)
         intent.putExtra("total_harga",totalHarga)
+        finishAffinity()
         startActivity(intent)
     }
     override fun showListProvinsi(data: RajaongkirProvinsi) {
@@ -138,6 +137,12 @@ class CheckoutActivity : AppCompatActivity(), CheckoutView {
     override fun hideLoading() {
 
     }
+
+    override fun showListFailed(message: String) {
+        val message = "Tidak dapat memproses permintaan Anda karena kesalahan koneksi. Silakan coba lagi"
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
     private fun totalPembayaran(){
 
         totalHarga = intent.getIntExtra("total_harga",0)

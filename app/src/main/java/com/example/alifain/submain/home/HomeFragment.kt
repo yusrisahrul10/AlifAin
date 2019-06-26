@@ -11,10 +11,13 @@ import android.support.v7.widget.SearchView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import android.widget.TextView
+import android.widget.Toast
 import com.example.alifain.detailBarang.ProductDetailActivity
 
 import com.example.alifain.R
-import com.example.alifain.adapter.NewProductAdapter
+import com.example.alifain.adapter.AllProductAdapter
 import com.example.alifain.item.BannerCarouselItem
 import com.example.alifain.item.BannerListener
 import com.example.alifain.model.ImageSlideModel
@@ -25,7 +28,6 @@ import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment(), BannerListener, HomeView {
-
 
     override fun onSeeAllImageClick() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -43,6 +45,9 @@ class HomeFragment : Fragment(), BannerListener, HomeView {
 
     private lateinit var search : SearchView
 
+    private lateinit var progressBar : ProgressBar
+    private lateinit var tvKosong : TextView
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,10 +55,19 @@ class HomeFragment : Fragment(), BannerListener, HomeView {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-        list = view.findViewById<RecyclerView>(R.id.new_product_list)
+        list = view.findViewById<RecyclerView>(R.id.all_product_list)
+
+        progressBar =view.findViewById(R.id.progress_bar_home)
+        tvKosong = view.findViewById(R.id.tv_kosong_home)
+
+
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         val apiRepository = ApiRepository()
-        presenter = HomePresenter(this,apiRepository)
-        presenter.getBarangList()
 
         search = view.findViewById(R.id.search_product)
         search.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
@@ -68,8 +82,8 @@ class HomeFragment : Fragment(), BannerListener, HomeView {
             }
 
         })
-
-        return view
+        presenter = HomePresenter(this,apiRepository)
+        presenter.getBarangList()
     }
 
     fun searchProduk(keyword : String?) {
@@ -83,7 +97,7 @@ class HomeFragment : Fragment(), BannerListener, HomeView {
 
          } else {
             list.visibility = View.VISIBLE
-            val adapter = NewProductAdapter(context, filteredList, { itemMatch: Data -> itemClick(itemMatch) })
+            val adapter = AllProductAdapter(context, filteredList, { itemMatch: Data -> itemClick(itemMatch) })
             list.adapter = adapter
             rvMain.visibility = View.GONE
 
@@ -93,7 +107,6 @@ class HomeFragment : Fragment(), BannerListener, HomeView {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
 
         val images = listOf(
             ImageSlideModel(
@@ -125,20 +138,21 @@ class HomeFragment : Fragment(), BannerListener, HomeView {
     override fun showBarang(data: List<Data>) {
         items.addAll(data)
         filteredItems.addAll(data)
-//        list.adapter = NewProductAdapter(context,{ itemBarang : DataTransaksi -> itemClick(itemBarang)})
-        list.adapter = NewProductAdapter(context, items, { itemMatch: Data -> itemClick(itemMatch) })
+        list.adapter = AllProductAdapter(context, items, { itemMatch: Data -> itemClick(itemMatch) })
         list.layoutManager = GridLayoutManager(context, 2)
-        (list.adapter as NewProductAdapter).notifyDataSetChanged()
-
-
+        (list.adapter as AllProductAdapter).notifyDataSetChanged()
     }
 
     override fun showLoading() {
-
+        progressBar.visibility = View.VISIBLE
+        tvKosong.visibility = View.GONE
+        list.visibility = View.GONE
     }
 
-    override fun viewLoading() {
-
+    override fun hideLoading() {
+        progressBar.visibility = View.GONE
+        tvKosong.visibility = View.GONE
+        list.visibility = View.VISIBLE
     }
 
     private fun itemClick(item : Data){
@@ -147,5 +161,12 @@ class HomeFragment : Fragment(), BannerListener, HomeView {
         startActivity(intent)
     }
 
+    override fun showBarangFailed(message: String) {
+        val message = "Tidak dapat memproses permintaan Anda karena kesalahan koneksi atau data kosong. Silakan coba lagi"
+        Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
+        progressBar.visibility = View.GONE
+        tvKosong.visibility = View.VISIBLE
+        list.visibility = View.GONE
+    }
 
 }

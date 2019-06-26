@@ -6,5 +6,6 @@ import com.example.alifain.model.barang.Data
 interface HomeView {
     fun showBarang(data : List<Data>)
     fun showLoading()
-    fun viewLoading()
+    fun hideLoading()
+    fun showBarangFailed(message : String)
 }

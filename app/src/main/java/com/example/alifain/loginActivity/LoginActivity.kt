@@ -11,6 +11,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import com.example.alifain.MainActivity
 import com.example.alifain.R
 import com.example.alifain.registerActivity.RegisterActivity
@@ -18,8 +19,6 @@ import com.example.alifain.preference.MyPreference
 import com.example.alifain.rest.ApiRepository
 
 class LoginActivity : AppCompatActivity() , LoginView {
-
-
 
     private lateinit var btnLogin: Button
     private lateinit var tvSignUp: TextView
@@ -47,6 +46,7 @@ class LoginActivity : AppCompatActivity() , LoginView {
     }
     override fun moveIntent() {
         val intent = Intent(this, MainActivity::class.java)
+        finishAffinity()
         startActivity(intent)
 
     }
@@ -57,6 +57,8 @@ class LoginActivity : AppCompatActivity() , LoginView {
             override fun onClick(widget: View) {
                 val intent = object : Intent(this@LoginActivity, RegisterActivity::class.java){
                 }
+
+                finishAffinity()
                 startActivity(intent)
             }
         }
@@ -82,5 +84,9 @@ class LoginActivity : AppCompatActivity() , LoginView {
 
     }
 
+    override fun failedLogin(message: String) {
+        val message = "Tidak dapat memproses permintaan Anda karena kesalahan koneksi. Silakan coba lagi"
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
 
 }

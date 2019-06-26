@@ -7,6 +7,19 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email_or_username">Email or Username</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log In</string>
+    <string name="log_in_with_google">Log In with Google</string>
+    <string name="or">OR</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign Up.</string>
+    <string name="niqab">Niqab Bandana Poni</string>
+    <string name="rp_48000">Rp. 48000</string>
+    <string name="todo">TODO</string>
+    <string name="add_to_cart">Add To Cart</string>
+    <string name="total">Total</string>
+    <string name="deskripsi">Ukuran (S, M, L, XL,), warna</string>
+    <string name="deskripsi_pesanan">Deskripsi Pesanan</string>
 
     <string-array name="category_name">
         <item>Niqab</item>

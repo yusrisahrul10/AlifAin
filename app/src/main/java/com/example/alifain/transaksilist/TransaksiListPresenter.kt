@@ -15,7 +15,7 @@ class TransaksiListPresenter(private val view: TransaksiListView, private val ap
         val connect: ApiInterface = apiRepository.getUrl().create(ApiInterface::class.java)
         connect.getListTransaksi(id_user).enqueue(object : Callback<ListTransaksiResponse>{
             override fun onFailure(call: Call<ListTransaksiResponse>, t: Throwable) {
-
+                view.showListTransaksiFailed(t.localizedMessage)
             }
 
             override fun onResponse(call: Call<ListTransaksiResponse>, response: Response<ListTransaksiResponse>) {

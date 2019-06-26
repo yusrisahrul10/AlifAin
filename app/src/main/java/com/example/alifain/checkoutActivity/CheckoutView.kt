@@ -15,4 +15,5 @@ interface CheckoutView {
     fun moveIntent(id_transaksi : Int)
     fun showLoading()
     fun hideLoading()
+    fun showListFailed(message : String)
 }

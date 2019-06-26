@@ -7,4 +7,6 @@ interface DetailView {
     fun showLoading()
     fun hideLoading()
     fun moveToHomeFragment()
+    fun showDetailBarangFailed(message : String)
+    fun addCartFailed(message: String)
 }

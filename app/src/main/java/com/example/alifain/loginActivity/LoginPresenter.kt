@@ -30,7 +30,7 @@ class LoginPresenter(private val view: LoginView, private val apiRepository: Api
         val connect: ApiInterface = apiRepository.getUrl().create(ApiInterface::class.java)
         connect.loginAction(email, password).enqueue(object : Callback<LoginRespones> {
             override fun onFailure(call: Call<LoginRespones>, t: Throwable) {
-
+                view.failedLogin(t.localizedMessage)
             }
 
             override fun onResponse(call: Call<LoginRespones>, response: Response<LoginRespones>) {
@@ -50,9 +50,11 @@ class LoginPresenter(private val view: LoginView, private val apiRepository: Api
 
                 if (push.equals("sukses")) {
                     Toast.makeText(context, "Login berhasil ", Toast.LENGTH_SHORT).show()
+                    view.hideLoading()
                     moveIntent()
                 } else{
                     Toast.makeText(context, "Username dan Password Salah", Toast.LENGTH_SHORT).show()
+                    view.hideLoading()
                 }
             }
 

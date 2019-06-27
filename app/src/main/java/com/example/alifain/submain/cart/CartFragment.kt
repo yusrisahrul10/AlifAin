@@ -67,6 +67,8 @@ class CartFragment : Fragment() , CartView {
         val apiRepository = ApiRepository()
         presenter = CartPresenter(this,apiRepository)
         myPreference = MyPreference(this.activity!!)
+
+
         presenter.getListCart(myPreference.getIdUser())
 
     }

@@ -19,14 +19,14 @@ import com.example.alifain.transaksiActivity.TransactionActivity
 
 class TransaksiListActivity : AppCompatActivity(), TransaksiListView {
 
-    private var items : MutableList<Data> = mutableListOf()
+    private var items: MutableList<Data> = mutableListOf()
     private lateinit var list: RecyclerView
     private lateinit var presenter: TransaksiListPresenter
     private lateinit var myPreference: MyPreference
 
 
-    private lateinit var progressBar : ProgressBar
-    private lateinit var tvKosong : TextView
+    private lateinit var progressBar: ProgressBar
+    private lateinit var tvKosong: TextView
 
 //    lateinit var submit : String
 
@@ -37,6 +37,8 @@ class TransaksiListActivity : AppCompatActivity(), TransaksiListView {
         list = findViewById(R.id.rvListTransaksi)
         val apiRepository = ApiRepository()
         myPreference = MyPreference(this)
+
+
 
 
         progressBar = findViewById(R.id.progress_bar_list_transaksi)
@@ -69,7 +71,7 @@ class TransaksiListActivity : AppCompatActivity(), TransaksiListView {
         list.visibility = View.VISIBLE
     }
 
-    private fun itemClick(item : Data) {
+    private fun itemClick(item: Data) {
         val intent = Intent(this, DetailTransaksiActivity::class.java)
         intent.putExtra("id_transaksi", item.id_transaksi)
 //        intent.putExtra("bayar_true", submit)
@@ -77,7 +79,8 @@ class TransaksiListActivity : AppCompatActivity(), TransaksiListView {
     }
 
     override fun showListTransaksiFailed(message: String) {
-        val message = "Tidak dapat memproses permintaan Anda karena kesalahan koneksi atau data kosong. Silakan coba lagi"
+        val message =
+            "Tidak dapat memproses permintaan Anda karena kesalahan koneksi atau data kosong. Silakan coba lagi"
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         progressBar.visibility = View.GONE
         tvKosong.visibility = View.VISIBLE

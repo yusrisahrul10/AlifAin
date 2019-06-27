@@ -43,7 +43,9 @@ class ProfileFragment : Fragment() {
         tvEmail = view.findViewById(R.id.tvEmail)
         tvPhone = view.findViewById(R.id.tvPhone)
 
-        myPreference = MyPreference(requireContext())
+        myPreference = MyPreference(this.activity!!)
+
+
 
         tvPhone.text = myPreference.getNohp()
         tvAddress.text = myPreference.getAlamat()

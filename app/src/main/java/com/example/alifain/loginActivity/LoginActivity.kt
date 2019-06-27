@@ -78,6 +78,7 @@ class LoginActivity : AppCompatActivity() , LoginView {
     fun getData(){
         val apiRepository = ApiRepository()
         val myPreference = MyPreference(this)
+
         presenter = LoginPresenter(this,apiRepository)
         presenter.LoginPresenter(this,myPreference)
 

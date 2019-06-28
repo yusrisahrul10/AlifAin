@@ -12,19 +12,24 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".detailtransaksi.DetailTransaksiActivity">
+        <activity android:name=".detailtransaksi.DetailTransaksiActivity"
+                  android:theme="@style/NoActionBar">
         </activity>
-        <activity android:name=".transaksilist.TransaksiListActivity">
+        <activity android:name=".transaksilist.TransaksiListActivity"
+                  android:theme="@style/NoActionBar">
         </activity>
-        <activity android:name=".editprofile.EditProfileActivity">
+        <activity android:name=".editprofile.EditProfileActivity"
+                  android:theme="@style/NoActionBar">
         </activity>
         <activity
                 android:name=".transaksiActivity.TransactionActivity"
-                android:screenOrientation="portrait">
+                android:screenOrientation="portrait"
+                android:theme="@style/NoActionBar">
         </activity>
         <activity
                 android:name=".SplashScreenActivity"
-                android:screenOrientation="portrait">
+                android:screenOrientation="portrait"
+                android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -33,27 +38,33 @@
         </activity>
         <activity
                 android:name=".checkoutActivity.CheckoutActivity"
-                android:screenOrientation="portrait">
+                android:screenOrientation="portrait"
+                android:theme="@style/NoActionBar">
         </activity>
         <activity
                 android:name=".detailBarang.ProductDetailActivity"
-                android:screenOrientation="portrait">
+                android:screenOrientation="portrait"
+                android:theme="@style/NoActionBar">
         </activity>
         <activity
                 android:name=".registerActivity.RegisterActivity"
-                android:screenOrientation="portrait">
+                android:screenOrientation="portrait"
+                android:theme="@style/NoActionBar">
         </activity>
         <activity
                 android:name=".loginActivity.LoginActivity"
-                android:screenOrientation="portrait">
+                android:screenOrientation="portrait"
+                android:theme="@style/NoActionBar">
         </activity>
         <activity
                 android:name=".MainActivity"
-                android:screenOrientation="portrait">
+                android:screenOrientation="portrait"
+                android:theme="@style/NoActionBar">
         </activity>
         <activity
                 android:name=".category.DetailCategoryActivity"
-                android:screenOrientation="portrait">
+                android:screenOrientation="portrait"
+                android:theme="@style/NoActionBar">
         </activity>
     </application>
 

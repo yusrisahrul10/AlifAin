@@ -7,15 +7,33 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         tools:context=".submain.home.HomeFragment">
 
+
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textColor="#000000"
+                android:lineSpacingExtra="3sp"
+                android:text="Home"
+                android:fontFamily="@font/berlinsans"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="19dp"
+                android:textStyle="bold"
+        />
+
         <android.support.v7.widget.SearchView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginBottom="21dp"
                 android:id="@+id/search_product"
                 app:iconifiedByDefault="false"
                 android:background="@drawable/rect"
@@ -26,14 +44,17 @@
                 android:id="@+id/rvMain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"/>
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="23dp"
+                android:layout_marginEnd="26dp"
+                android:layout_marginBottom="34dp"/>
 
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="All Product"
-                android:layout_margin="16dp"
+                android:layout_marginStart="19dp"
                 android:fontFamily="@font/berlinsans"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -62,8 +83,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginStart="19dp"
                 tools:listitem="@layout/item_all_product"
                 android:layout_marginBottom="?android:actionBarSize"/>
 

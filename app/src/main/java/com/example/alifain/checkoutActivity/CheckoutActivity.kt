@@ -32,6 +32,7 @@ class CheckoutActivity : AppCompatActivity(), CheckoutView {
     private lateinit var txtTotalBayar : TextView
     private lateinit var edtAlamat : EditText
     private lateinit var myPreference: MyPreference
+    private lateinit var back : ImageView
 
 
     var totalgram: Int = 0
@@ -52,6 +53,8 @@ class CheckoutActivity : AppCompatActivity(), CheckoutView {
         txtSubTotal = findViewById(R.id.txtSubTotal)
         txtTotalBayar = findViewById(R.id.txtTotalBayar)
         edtAlamat = findViewById(R.id.edtAlamatCekout)
+        back = findViewById(R.id.iv_back_checkout)
+
 //        spinnerJne = findViewById(R.id.spinnerJne)
         totalgram = intent.getIntExtra("total_gram", 0)
 
@@ -71,6 +74,10 @@ class CheckoutActivity : AppCompatActivity(), CheckoutView {
                 presenter.cekoutPost(myPreference.getIdUser().toInt(),totalOngkir,totalHarga,edtAlamat.text.toString())
 
             }
+        }
+
+        back.setOnClickListener {
+            finishAffinity()
         }
 
     }

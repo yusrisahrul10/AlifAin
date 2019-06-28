@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -28,6 +29,8 @@ class TransaksiListActivity : AppCompatActivity(), TransaksiListView {
     private lateinit var progressBar: ProgressBar
     private lateinit var tvKosong: TextView
 
+    private lateinit var back : ImageView
+
 //    lateinit var submit : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +50,10 @@ class TransaksiListActivity : AppCompatActivity(), TransaksiListView {
         presenter = TransaksiListPresenter(this, apiRepository)
         presenter.getListTransaksi(myPreference.getIdUser())
 
+        back = findViewById(R.id.iv_back_transaksi)
+        back.setOnClickListener {
+            finishAffinity()
+        }
 
 //        submit = intent.getStringExtra("submit_true")
     }
@@ -66,9 +73,14 @@ class TransaksiListActivity : AppCompatActivity(), TransaksiListView {
     }
 
     override fun hideLoading() {
-        progressBar.visibility = View.GONE
-        tvKosong.visibility = View.GONE
-        list.visibility = View.VISIBLE
+        if (items.size == 0) {
+            val message = "Tidak dapat memproses permintaan Anda karena kesalahan koneksi atau data kosong. Silakan coba lagi"
+            noData(message)
+        } else {
+            progressBar.visibility = View.GONE
+            tvKosong.visibility = View.GONE
+            list.visibility = View.VISIBLE
+        }
     }
 
     private fun itemClick(item: Data) {
@@ -79,8 +91,11 @@ class TransaksiListActivity : AppCompatActivity(), TransaksiListView {
     }
 
     override fun showListTransaksiFailed(message: String) {
-        val message =
-            "Tidak dapat memproses permintaan Anda karena kesalahan koneksi atau data kosong. Silakan coba lagi"
+        val message = "Tidak dapat memproses permintaan Anda karena kesalahan koneksi atau data kosong. Silakan coba lagi"
+        noData(message)
+    }
+
+    private fun noData(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         progressBar.visibility = View.GONE
         tvKosong.visibility = View.VISIBLE

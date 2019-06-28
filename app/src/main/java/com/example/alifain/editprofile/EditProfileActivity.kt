@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import com.example.alifain.R
 import com.example.alifain.detailtransaksi.DetailTransaksiPresenter
@@ -23,6 +24,8 @@ class EditProfileActivity : AppCompatActivity(), EditProfileView {
     private lateinit var myPreference: MyPreference
     private lateinit var presenter: EditProfilePresenter
 
+    private lateinit var back : ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
@@ -32,6 +35,8 @@ class EditProfileActivity : AppCompatActivity(), EditProfileView {
         edtAlamat = findViewById(R.id.edtAlamat)
         edtNoHp = findViewById(R.id.edtNoHp)
         btnSaveProfile = findViewById(R.id.btnSaveProfile)
+
+        back = findViewById(R.id.iv_back_edt_profile)
 
         val apiRepository = ApiRepository()
 
@@ -54,6 +59,10 @@ class EditProfileActivity : AppCompatActivity(), EditProfileView {
                 presenter.updateUserProfile(myPreference.getIdUser(), username, email, alamat, nohp)
             }
 
+        }
+
+        back.setOnClickListener {
+            finishAffinity()
         }
     }
     override fun updateProfile(data: Data) {

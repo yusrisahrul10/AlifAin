@@ -55,6 +55,8 @@ class DetailTransaksiActivity : AppCompatActivity(), DetailTransaksiView {
     private lateinit var progressBar : ProgressBar
     private lateinit var tvKosong : TextView
 
+    private lateinit var back : ImageView
+
     var status = ""
 
 
@@ -88,6 +90,8 @@ class DetailTransaksiActivity : AppCompatActivity(), DetailTransaksiView {
         cvBayar = findViewById(R.id.cv_bayar)
         llBukti = findViewById(R.id.ll_bukti_pengiriman)
 
+        back = findViewById(R.id.iv_back_detail_transaksi)
+
         id_transaksi = intent.getStringExtra("id_transaksi")
 
         list = findViewById(R.id.rvDetailTransaksi)
@@ -105,6 +109,9 @@ class DetailTransaksiActivity : AppCompatActivity(), DetailTransaksiView {
             btnDiterima.visibility = View.GONE
         }
 
+        back.setOnClickListener {
+            finishAffinity()
+        }
     }
 
     override fun showLoading() {

@@ -33,6 +33,8 @@ class ProductDetailActivity : AppCompatActivity() , DetailView {
     private lateinit var tvDeskripsi : TextView
     private lateinit var tvTotal : TextView
 
+    private lateinit var back : ImageView
+
     private lateinit var edtDeskripsi : EditText
 
     private lateinit var progressBar: ProgressBar
@@ -52,6 +54,7 @@ class ProductDetailActivity : AppCompatActivity() , DetailView {
         btnMinus = findViewById(R.id.btnMinus)
         btnPlus = findViewById(R.id.btnPlus)
         tvQuantity = findViewById(R.id.tvQuantity)
+        back = findViewById(R.id.iv_back_product)
 
         quantity = findViewById(R.id.quantitiy)
         tvDeskripsi = findViewById(R.id.tvDeskripsi)
@@ -72,6 +75,10 @@ class ProductDetailActivity : AppCompatActivity() , DetailView {
         btnAddCart()
 
         tvQuantity.text = qty.toString()
+
+        back.setOnClickListener {
+            finishAffinity()
+        }
     }
 
     fun btnAddCart() {

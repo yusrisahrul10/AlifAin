@@ -7,11 +7,40 @@
         android:layout_height="match_parent"
         tools:context=".transaksilist.TransaksiListActivity">
 
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/ll_list_trnsaksi">
+
+        <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:id="@+id/iv_back_transaksi"
+                android:layout_marginTop="27dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/left_arrow"
+                android:contentDescription="@string/todo"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="20dp"
+                android:textColor="@android:color/black"
+                android:letterSpacing="0.03"
+                android:lineSpacingExtra="2sp"
+                android:text="Daftar Transaksi"
+                android:fontFamily="@font/berlinsans"
+        />
+    </LinearLayout>
+
     <android.support.v7.widget.RecyclerView
             android:id="@+id/rvListTransaksi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_below="@id/ll_list_trnsaksi"
             tools:listitem="@layout/item_list_transaksi"/>
 
     <TextView

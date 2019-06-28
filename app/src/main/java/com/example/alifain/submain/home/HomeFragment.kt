@@ -158,7 +158,7 @@ class HomeFragment : Fragment(), BannerListener, HomeView {
     private fun itemClick(item : Data){
         val intent = Intent(context, ProductDetailActivity::class.java)
         intent.putExtra("id_barang",item.id_barang)
-        startActivity(intent)
+        startActivityForResult(intent, 101)
     }
 
     override fun showBarangFailed(message: String) {

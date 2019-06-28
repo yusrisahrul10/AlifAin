@@ -26,12 +26,14 @@ class DetailTransaksiAdapter(private val context: Context?, private val items: L
         private val nama = view.findViewById<TextView>(R.id.tvNamaBarang)
         private val kategori = view.findViewById<TextView>(R.id.tvKategori)
         private val harga = view.findViewById<TextView>(R.id.tvHargaSatuan)
+        private val qty = view.findViewById<TextView>(R.id.tvQty)
         private val gambar = view.findViewById<ImageView>(R.id.imgDetaiTransaksi)
 
         fun bindItem(items : Data) {
             nama.text = items.nama_barang
             kategori.text = items.category
             harga.text = "Rp. " + items.harga
+            qty.text = "Jumlah : " +items.qty + " buah"
 
             items.nama_gambar.let { Picasso.get().load("http://alifain.dscunikom.com/uploads/barang/"+it).into(gambar) }
         }

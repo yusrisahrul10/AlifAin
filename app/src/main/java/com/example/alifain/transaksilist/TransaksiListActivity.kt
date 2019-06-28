@@ -52,7 +52,7 @@ class TransaksiListActivity : AppCompatActivity(), TransaksiListView {
 
         back = findViewById(R.id.iv_back_transaksi)
         back.setOnClickListener {
-            finishAffinity()
+            onBackPressed()
         }
 
 //        submit = intent.getStringExtra("submit_true")

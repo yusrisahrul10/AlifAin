@@ -75,13 +75,27 @@
 
             />
 
+            <TextView
+                    android:id="@+id/tvQty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="Jumlah :  "
+                    android:layout_below="@id/tvHargaSatuan"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/berlinsans"
+
+            />
+
             <View
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
                     android:background="@android:color/darker_gray"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
-                    android:layout_below="@id/tvHargaSatuan"/>
+                    android:layout_below="@id/tvQty"/>
 
         </RelativeLayout>
 

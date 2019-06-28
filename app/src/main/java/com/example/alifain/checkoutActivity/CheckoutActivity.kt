@@ -77,7 +77,7 @@ class CheckoutActivity : AppCompatActivity(), CheckoutView {
         }
 
         back.setOnClickListener {
-            finishAffinity()
+            onBackPressed()
         }
 
     }

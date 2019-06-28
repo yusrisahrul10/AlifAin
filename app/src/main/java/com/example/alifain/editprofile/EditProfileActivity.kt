@@ -62,7 +62,8 @@ class EditProfileActivity : AppCompatActivity(), EditProfileView {
         }
 
         back.setOnClickListener {
-            finishAffinity()
+            onBackPressed()
+
         }
     }
     override fun updateProfile(data: Data) {

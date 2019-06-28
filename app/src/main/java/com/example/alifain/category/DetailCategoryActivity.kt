@@ -28,6 +28,7 @@ class DetailCategoryActivity : AppCompatActivity() , CategoryView {
 
     private lateinit var progressBar : ProgressBar
     private lateinit var tvKosong : TextView
+    private lateinit var category : TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,12 +39,14 @@ class DetailCategoryActivity : AppCompatActivity() , CategoryView {
 
         progressBar = findViewById(R.id.progress_bar_detail_category)
         tvKosong = findViewById(R.id.tv_kosong_detail_category)
+        category = findViewById(R.id.nama_category)
 
         val getItem = intent.getParcelableExtra<CategoryModel>("id")
         val apiRepository = ApiRepository()
         presenter = CategoryPresenter(this,apiRepository)
         presenter.getListBarang(getItem.name.toString())
 
+        category.text = getItem.name
 
         Log.e("tag", "RANDOM STRING  ${getRandomString(30)}")
 
@@ -61,7 +64,7 @@ class DetailCategoryActivity : AppCompatActivity() , CategoryView {
     private fun itemClick(item : Data){
         val intent = Intent(this, ProductDetailActivity::class.java)
         intent.putExtra("id_barang",item.id_barang)
-        startActivity(intent)
+        startActivityForResult(intent, 102)
     }
 
     override fun getListBarang(data: List<Data>) {

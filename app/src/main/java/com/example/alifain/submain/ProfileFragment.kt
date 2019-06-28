@@ -12,6 +12,7 @@ import android.widget.TextView
 import com.example.alifain.editprofile.EditProfileActivity
 
 import com.example.alifain.R
+import com.example.alifain.loginActivity.LoginActivity
 import com.example.alifain.preference.MyPreference
 import com.example.alifain.transaksilist.TransaksiListActivity
 
@@ -19,6 +20,7 @@ class ProfileFragment : Fragment() {
 
     private lateinit var btnEdit : Button
     private lateinit var btnList : Button
+    private lateinit var btnLogOut : Button
 
     private lateinit var tvUsername : TextView
     private lateinit var tvEmail : TextView
@@ -37,6 +39,7 @@ class ProfileFragment : Fragment() {
 
         btnEdit = view.findViewById(R.id.btnEditProfile)
         btnList = view.findViewById(R.id.btnListTransaksi)
+        btnLogOut = view.findViewById(R.id.btnLogOut)
 
         tvAddress = view.findViewById(R.id.tvAddress)
         tvUsername = view.findViewById(R.id.tvUsername)
@@ -62,6 +65,13 @@ class ProfileFragment : Fragment() {
             val intent = Intent(context, TransaksiListActivity::class.java)
             startActivity(intent)
         }
+        btnLogOut.setOnClickListener {
+            myPreference.logOut()
+            val intent = Intent(context, LoginActivity::class.java)
+            activity?.finishAffinity()
+            startActivity(intent)
+        }
+
         return view
     }
 

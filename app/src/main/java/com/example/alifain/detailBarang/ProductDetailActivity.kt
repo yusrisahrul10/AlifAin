@@ -77,7 +77,7 @@ class ProductDetailActivity : AppCompatActivity() , DetailView {
         tvQuantity.text = qty.toString()
 
         back.setOnClickListener {
-            finishAffinity()
+            onBackPressed()
         }
     }
 

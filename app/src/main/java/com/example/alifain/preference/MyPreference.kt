@@ -23,6 +23,12 @@ class MyPreference(private var context: Context) {
         return preference.getString(ID_USER, "")
     }
 
+    fun logOut() {
+        val editor = preference.edit()
+        editor.putBoolean(IS_LOGIN, false)
+        editor.apply()
+    }
+
     fun setIdUser(idUser: String) {
         val editor = preference.edit()
         editor.putBoolean(IS_LOGIN, true)

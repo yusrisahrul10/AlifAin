@@ -12,5 +12,6 @@ data class Data(
     val tgl_transaksi: String,
     val total_harga: String,
     val ukuran: String,
-    val nama_gambar: String
+    val nama_gambar: String,
+    val qty : String
 )

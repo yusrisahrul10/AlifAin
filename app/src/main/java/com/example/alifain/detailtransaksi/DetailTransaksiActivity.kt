@@ -110,7 +110,7 @@ class DetailTransaksiActivity : AppCompatActivity(), DetailTransaksiView {
         }
 
         back.setOnClickListener {
-            finishAffinity()
+            onBackPressed()
         }
     }
 
@@ -185,6 +185,14 @@ class DetailTransaksiActivity : AppCompatActivity(), DetailTransaksiView {
             llBukti.visibility = View.GONE
             btnSubmitPengiriman.visibility = View.GONE
             btnDiterima.visibility = View.VISIBLE
+        }
+
+        if (data.get(0).konfirmasi == "3") {
+            status = "Pesanan Diterima"
+            cvBayar.visibility = View.GONE
+            llBukti.visibility = View.GONE
+            btnSubmitPengiriman.visibility = View.GONE
+            btnDiterima.visibility = View.GONE
         }
 
 

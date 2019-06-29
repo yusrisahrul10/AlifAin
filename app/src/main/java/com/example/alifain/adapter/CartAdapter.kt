@@ -18,10 +18,11 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class CartAdapter(private val context: Context?, private var items: MutableList<Data> = mutableListOf(),
-                  private val listener: (Data) -> Unit, private var tvTotalHarga: TextView)
+                  private val listener: (Data) -> Unit, private var tvTotalHarga: TextView, private var btnCart: Button)
     : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
 
     val apiRepository = ApiRepository()
+    var push : String? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_cart, parent, false))
@@ -41,12 +42,19 @@ class CartAdapter(private val context: Context?, private var items: MutableList<
             Log.e("get id_user", id_user)
 
             deleteCart(id_user, id_barang)
-            items.removeAt(position)
+            if (push != null) {
+                items.removeAt(position)
+            }
+        }
+
+        if (items.size == 0) {
+            btnCart.setOnClickListener {
+                Toast.makeText(context, "Keranjang Anda kosong. Silakan pilih barang yang ingin dibeli", Toast.LENGTH_SHORT).show()
+            }
         }
 //
 //        btnCart.setOnClickListener {
 ////            if (items.size == 0) {
-////                Toast.makeText(context, "Keranjang Anda kosong. Silakan pilih barang yang ingin dibeli", Toast.LENGTH_SHORT).show()
 ////            }
 //        }
     }
@@ -80,16 +88,18 @@ class CartAdapter(private val context: Context?, private var items: MutableList<
         connect.deleteKeranjang(id_user, id_barang).enqueue(object : Callback<DeleteKeranjangResponse> {
             override fun onFailure(call: Call<DeleteKeranjangResponse>, t: Throwable) {
                 Log.e("gagal", t.message)
+                Toast.makeText(context, "Tidak dapat memproses permintaan Anda karena kesalahan koneksi. Silakan coba lagi", Toast.LENGTH_SHORT).show()
+
             }
 
             override fun onResponse(call: Call<DeleteKeranjangResponse>, response: Response<DeleteKeranjangResponse>) {
-                val push : String? = response.body()?.messaage
+                push = response.body()?.messaage
                 val harga : Int? = response.body()?.total_harga
                 tvTotalHarga.text = "Rp. " + harga
 
                 notifyDataSetChanged()
                 Log.e("size item", items.size.toString())
-//                  og.e("DELETE", "RESPONE CART $push")
+                  Log.e("DELETE", "RESPONE CART $push")
             }
 
         })

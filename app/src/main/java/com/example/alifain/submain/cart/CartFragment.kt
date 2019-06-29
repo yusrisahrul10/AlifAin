@@ -91,7 +91,7 @@ class CartFragment : Fragment() , CartView {
             }
         }
         items.addAll(data)
-        list.adapter = CartAdapter(context, items, { itemMatch: Data -> itemClick(itemMatch) }, tvTotalHarga)
+        list.adapter = CartAdapter(context, items, { itemMatch: Data -> itemClick(itemMatch) }, tvTotalHarga, btnCheckout)
         list.layoutManager = LinearLayoutManager(context)
         (list.adapter as CartAdapter).notifyDataSetChanged()
         Log.e("SIZE CART", data.size.toString())

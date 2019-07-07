@@ -39,11 +39,16 @@
                 android:layout_height="wrap_content"
         >
 
-            <android.support.v7.widget.RecyclerView
+            <com.mlsdev.animatedrv.AnimatedRecyclerView
                     android:id="@+id/rvListCart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"/>
+                    android:layout_marginTop="16dp"
+                    app:animationDuration="600"
+                    app:layoutAnimation="@anim/layout_animation_from_bottom_scale"
+                    app:layoutManagerOrientation="vertical"
+                    app:layoutManagerReverse="false"
+                    app:layoutManagerType="linear"/>
 
         </RelativeLayout>
 

@@ -35,13 +35,18 @@
         />
     </LinearLayout>
 
-    <android.support.v7.widget.RecyclerView
+    <com.mlsdev.animatedrv.AnimatedRecyclerView
             android:id="@+id/rvListTransaksi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_below="@id/ll_list_trnsaksi"
-            tools:listitem="@layout/item_list_transaksi"/>
+            tools:listitem="@layout/item_list_transaksi"
+            app:animationDuration="600"
+            app:layoutAnimation="@anim/layout_animation_from_bottom_scale"
+            app:layoutManagerOrientation="vertical"
+            app:layoutManagerReverse="false"
+            app:layoutManagerType="linear"/>
 
     <TextView
             android:layout_width="wrap_content"

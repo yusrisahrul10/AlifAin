@@ -17,11 +17,12 @@ import com.example.alifain.model.listtransaksi.Data
 import com.example.alifain.preference.MyPreference
 import com.example.alifain.rest.ApiRepository
 import com.example.alifain.transaksiActivity.TransactionActivity
+import com.mlsdev.animatedrv.AnimatedRecyclerView
 
 class TransaksiListActivity : AppCompatActivity(), TransaksiListView {
 
     private var items: MutableList<Data> = mutableListOf()
-    private lateinit var list: RecyclerView
+    private lateinit var list: AnimatedRecyclerView
     private lateinit var presenter: TransaksiListPresenter
     private lateinit var myPreference: MyPreference
 
@@ -64,6 +65,7 @@ class TransaksiListActivity : AppCompatActivity(), TransaksiListView {
         list.adapter = ListTransaksiAdapter(this, items, { itemMatch: Data -> itemClick(itemMatch) })
         list.layoutManager = LinearLayoutManager(this)
         (list.adapter as ListTransaksiAdapter).notifyDataSetChanged()
+        list.scheduleLayoutAnimation()
     }
 
     override fun showLoading() {

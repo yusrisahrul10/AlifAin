@@ -21,13 +21,14 @@ import com.example.alifain.adapter.CartAdapter
 import com.example.alifain.model.cart.Data
 import com.example.alifain.preference.MyPreference
 import com.example.alifain.rest.ApiRepository
+import com.mlsdev.animatedrv.AnimatedRecyclerView
 
 class CartFragment : Fragment() , CartView {
 
 
     private lateinit var btnCheckout: Button
     private var items: MutableList<Data> = mutableListOf()
-    private lateinit var list: RecyclerView
+    private lateinit var list: AnimatedRecyclerView
     private lateinit var presenter: CartPresenter
     private lateinit var myPreference: MyPreference
 
@@ -94,6 +95,7 @@ class CartFragment : Fragment() , CartView {
         list.adapter = CartAdapter(context, items, { itemMatch: Data -> itemClick(itemMatch) }, tvTotalHarga, btnCheckout)
         list.layoutManager = LinearLayoutManager(context)
         (list.adapter as CartAdapter).notifyDataSetChanged()
+        list.scheduleLayoutAnimation()
         Log.e("SIZE CART", data.size.toString())
     }
 

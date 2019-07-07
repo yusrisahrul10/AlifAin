@@ -23,6 +23,7 @@ import com.example.alifain.item.BannerListener
 import com.example.alifain.model.ImageSlideModel
 import com.example.alifain.model.barang.Data
 import com.example.alifain.rest.ApiRepository
+import com.mlsdev.animatedrv.AnimatedRecyclerView
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -39,7 +40,7 @@ class HomeFragment : Fragment(), BannerListener, HomeView {
 
     private var items: MutableList<Data> = mutableListOf()
     private var filteredItems: MutableList<Data> = mutableListOf()
-    private lateinit var list: RecyclerView
+    private lateinit var list: AnimatedRecyclerView
     private lateinit var presenter: HomePresenter
     private var groupAdapter = GroupAdapter<ViewHolder>()
 
@@ -48,6 +49,7 @@ class HomeFragment : Fragment(), BannerListener, HomeView {
     private lateinit var progressBar : ProgressBar
     private lateinit var tvKosong : TextView
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -55,7 +57,7 @@ class HomeFragment : Fragment(), BannerListener, HomeView {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-        list = view.findViewById<RecyclerView>(R.id.all_product_list)
+        list = view.findViewById(R.id.all_product_list)
 
         progressBar =view.findViewById(R.id.progress_bar_home)
         tvKosong = view.findViewById(R.id.tv_kosong_home)
@@ -141,6 +143,7 @@ class HomeFragment : Fragment(), BannerListener, HomeView {
         list.adapter = AllProductAdapter(context, items, { itemMatch: Data -> itemClick(itemMatch) })
         list.layoutManager = GridLayoutManager(context, 2)
         (list.adapter as AllProductAdapter).notifyDataSetChanged()
+        list.scheduleLayoutAnimation()
     }
 
     override fun showLoading() {

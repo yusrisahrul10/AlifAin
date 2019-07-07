@@ -13,6 +13,7 @@ import com.example.alifain.R
 import com.example.alifain.adapter.CategoryAdapter
 import com.example.alifain.category.DetailCategoryActivity
 import com.example.alifain.model.CategoryModel
+import com.mlsdev.animatedrv.AnimatedRecyclerView
 
 class CategoryFragment : Fragment() {
 
@@ -29,7 +30,7 @@ class CategoryFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_category, container, false)
 
-        val list = view.findViewById<RecyclerView>(R.id.category_list)
+        val list = view.findViewById<AnimatedRecyclerView>(R.id.category_list)
         initData()
 
         list.layoutManager = LinearLayoutManager(context)
@@ -38,6 +39,7 @@ class CategoryFragment : Fragment() {
             intent.putExtra("id", CategoryModel(it.name,it.image))
             startActivity(intent)
         }
+        list.scheduleLayoutAnimation()
 
         return view
     }

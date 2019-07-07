@@ -42,9 +42,9 @@ class CartAdapter(private val context: Context?, private var items: MutableList<
             Log.e("get id_user", id_user)
 
             deleteCart(id_user, id_barang)
-            if (push != null) {
+
                 items.removeAt(position)
-            }
+
         }
 
         if (items.size == 0) {
@@ -98,6 +98,7 @@ class CartAdapter(private val context: Context?, private var items: MutableList<
                 tvTotalHarga.text = "Rp. " + harga
 
                 notifyDataSetChanged()
+
                 Log.e("size item", items.size.toString())
                   Log.e("DELETE", "RESPONE CART $push")
             }

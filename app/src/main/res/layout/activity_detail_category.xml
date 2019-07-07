@@ -36,13 +36,19 @@
             android:layout_gravity="center"
     />
 
-    <android.support.v7.widget.RecyclerView
+    <com.mlsdev.animatedrv.AnimatedRecyclerView
             android:id="@+id/rv_category_product_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
-            tools:listitem="@layout/item_all_product"/>
+            tools:listitem="@layout/item_all_product"
+            app:gridLayoutManagerColumns="2"
+            app:layoutAnimation="@anim/layout_animation_from_bottom_scale"
+            app:layoutManagerReverse="false"
+            app:layoutManagerType="grid"
+            app:animationDuration="500"
+            app:layoutManagerOrientation="vertical"/>
 
 </LinearLayout>

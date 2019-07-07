@@ -16,6 +16,7 @@ import com.example.alifain.adapter.AllProductAdapter
 import com.example.alifain.model.CategoryModel
 import com.example.alifain.model.barang.Data
 import com.example.alifain.rest.ApiRepository
+import com.mlsdev.animatedrv.AnimatedRecyclerView
 
 
 class DetailCategoryActivity : AppCompatActivity() , CategoryView {
@@ -23,7 +24,7 @@ class DetailCategoryActivity : AppCompatActivity() , CategoryView {
 
     private var items: MutableList<Data> = mutableListOf()
     private lateinit var presenter: CategoryPresenter
-    private lateinit var list : RecyclerView
+    private lateinit var list : AnimatedRecyclerView
     private val ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
     private lateinit var progressBar : ProgressBar
@@ -35,7 +36,7 @@ class DetailCategoryActivity : AppCompatActivity() , CategoryView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_category)
 
-       list = findViewById<RecyclerView>(R.id.rv_category_product_list)
+       list = findViewById(R.id.rv_category_product_list)
 
         progressBar = findViewById(R.id.progress_bar_detail_category)
         tvKosong = findViewById(R.id.tv_kosong_detail_category)
@@ -72,6 +73,7 @@ class DetailCategoryActivity : AppCompatActivity() , CategoryView {
         list.adapter = AllProductAdapter(this, items , { itemMatch: Data -> itemClick(itemMatch) })
         list.layoutManager = GridLayoutManager(this, 2)
         (list.adapter as AllProductAdapter).notifyDataSetChanged()
+        list.scheduleLayoutAnimation()
 
     }
 
